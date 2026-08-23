@@ -24,7 +24,7 @@ export const accentStyles: Record<
     dot: 'bg-skyblue',
     text: 'text-skyblue',
     soft: 'bg-skyblue/10',
-    stroke: '#8FB6D9',
+    stroke: '#7FAEA3',
   },
   rose: {
     chip: 'bg-rose/15 text-rose',

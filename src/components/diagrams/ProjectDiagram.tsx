@@ -3,7 +3,9 @@ import { accentStyles, type AccentName } from '../ui/accents'
 
 // Editorial animated process diagrams (diagram-design skill principles):
 // the static frame is complete — all nodes, labels and connectors are visible
-// content; motion is a staggered reveal plus one decorative flow token.
+// content. Motion is narrative: boxes appear in flow order, each arrow draws
+// from its source box, and a small accent pulse travels solid edges (CSS
+// dash-flow). Dashed revision edges drift backward; nothing orbits the figure.
 
 interface DiagramNode {
   id: string
@@ -27,8 +29,6 @@ interface DiagramSpec {
   title: string
   nodes: DiagramNode[]
   edges: DiagramEdge[]
-  /** Fixed path for the decorative flow token (aria-hidden). */
-  tokenPath?: string
 }
 
 const NODE_H = 44
@@ -41,7 +41,7 @@ const DIAGRAMS: Record<string, DiagramSpec> = {
       { id: 'script', x: 126, y: 78, w: 96, label: 'Script', sub: 'LLM' },
       { id: 'narration', x: 268, y: 18, w: 108, label: 'Narration', sub: 'TTS' },
       { id: 'visuals', x: 268, y: 138, w: 108, label: 'Visuals', sub: 'gen video' },
-      { id: 'assemble', x: 422, y: 78, w: 116, label: 'Assemble', sub: 'Remotion · FFmpeg' },
+      { id: 'assemble', x: 410, y: 78, w: 136, label: 'Assemble', sub: 'Remotion · FFmpeg' },
       { id: 'publish', x: 566, y: 78, w: 68, label: 'Publish' },
     ],
     edges: [
@@ -52,8 +52,6 @@ const DIAGRAMS: Record<string, DiagramSpec> = {
       { from: 'visuals', to: 'assemble' },
       { from: 'assemble', to: 'publish' },
     ],
-    tokenPath:
-      'M 12 100 L 122 100 C 244 100, 146 40, 268 40 L 376 40 C 500 40, 400 100, 480 100 L 630 100',
   },
   gia: {
     title: 'GIA visitor journey: entering a digital exhibition',
@@ -68,7 +66,6 @@ const DIAGRAMS: Record<string, DiagramSpec> = {
       { from: 'wander', to: 'discover' },
       { from: 'discover', to: 'reach' },
     ],
-    tokenPath: 'M 12 100 L 630 100',
   },
   carousel: {
     title: 'Carousel platform: brief to published campaign with approval loop',
@@ -86,7 +83,6 @@ const DIAGRAMS: Record<string, DiagramSpec> = {
       { from: 'render', to: 'approve' },
       { from: 'approve', to: 'generate', loopback: true, dashed: true, label: 'revise' },
     ],
-    tokenPath: 'M 12 80 L 630 80',
   },
   reconchille: {
     title: 'Reconchille delivery loop: design, build, test, release',
@@ -102,7 +98,6 @@ const DIAGRAMS: Record<string, DiagramSpec> = {
       { from: 'testflight', to: 'release' },
       { from: 'testflight', to: 'build', loopback: true, dashed: true, label: 'iterate' },
     ],
-    tokenPath: 'M 12 80 L 530 80',
   },
   koi: {
     title: 'Koi Academy: process details are under NDA',
@@ -132,8 +127,8 @@ function edgePath(spec: DiagramSpec, edge: DiagramEdge): string {
     const y1 = from.y + NODE_H
     const x2 = to.x + to.w / 2
     const y2 = to.y + NODE_H
-    const dip = y1 + 40
-    return `M ${x1} ${y1} C ${x1} ${dip}, ${x2} ${dip}, ${x2} ${y2 + 4}`
+    const dip = y1 + 36
+    return `M ${x1} ${y1} C ${x1} ${dip}, ${x2} ${dip}, ${x2} ${y2 + 6}`
   }
   const x1 = from.x + from.w
   const y1 = from.y + NODE_H / 2
@@ -154,9 +149,10 @@ export function ProjectDiagram({ projectId, accent }: ProjectDiagramProps) {
   const reduced = useReducedMotion()
   if (!spec) return null
   const stroke = accentStyles[accent].stroke
+  const nodeIndex = new Map(spec.nodes.map((n, i): [string, number] => [n.id, i]))
   const maxY = Math.max(
     ...spec.nodes.map((n) => n.y + NODE_H),
-    ...spec.edges.filter((e) => e.loopback).map((e) => nodeById(spec, e.from).y + NODE_H + 48),
+    ...spec.edges.filter((e) => e.loopback).map((e) => nodeById(spec, e.from).y + NODE_H + 64),
   )
 
   return (
@@ -175,52 +171,131 @@ export function ProjectDiagram({ projectId, accent }: ProjectDiagramProps) {
           refY="4"
           markerWidth="7"
           markerHeight="7"
-          orient="auto-start-reverse"
+          orient="auto"
         >
-          <path d="M 0 0 L 8 4 L 0 8 z" fill="#EFEEE9" opacity="0.45" />
+          <path d="M 0 0 L 8 4 L 0 8 z" fill={stroke} opacity="0.6" />
         </marker>
       </defs>
 
-      {spec.edges.map((edge, i) => (
-        <g key={`${edge.from}-${edge.to}`}>
-          <motion.path
-            d={edgePath(spec, edge)}
-            fill="none"
-            stroke="#EFEEE9"
-            strokeOpacity={0.3}
-            strokeWidth={1.5}
-            strokeDasharray={edge.dashed ? '4 5' : undefined}
-            markerEnd={`url(#arrow-${projectId})`}
-            initial={reduced ? false : { pathLength: 0, opacity: 0 }}
-            whileInView={{ pathLength: 1, opacity: 1 }}
-            viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.7, delay: 0.3 + i * 0.12, ease: 'easeOut' }}
-          />
-          {edge.label && (
-            <text
-              x={(nodeById(spec, edge.from).x + nodeById(spec, edge.to).x + nodeById(spec, edge.to).w) / 2}
-              y={nodeById(spec, edge.from).y + NODE_H + 36}
-              textAnchor="middle"
-              fill="#EFEEE9"
-              opacity="0.45"
-              fontSize="10"
-              fontStyle="italic"
-            >
-              {edge.label}
-            </text>
-          )}
-        </g>
-      ))}
+      {spec.edges.map((edge) => {
+        const sourceIndex = nodeIndex.get(edge.from) ?? 0
+        const delay = 0.24 + sourceIndex * 0.16
+        const d = edgePath(spec, edge)
+        return (
+          <g key={`${edge.from}-${edge.to}`}>
+            {edge.dashed ? (
+              <motion.path
+                d={d}
+                fill="none"
+                className="diagram-dash"
+                stroke={stroke}
+                strokeOpacity={0.55}
+                strokeWidth={1.5}
+                strokeDasharray="4 5"
+                markerEnd={`url(#arrow-${projectId})`}
+                initial={reduced ? false : { opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.5, delay, ease: 'easeOut' }}
+              />
+            ) : (
+              <motion.path
+                d={d}
+                fill="none"
+                stroke="#EFEEE9"
+                strokeOpacity={0.32}
+                strokeWidth={1.5}
+                markerEnd={`url(#arrow-${projectId})`}
+                initial={reduced ? false : { pathLength: 0, opacity: 0 }}
+                whileInView={{ pathLength: 1, opacity: 1 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.5, delay, ease: 'easeOut' }}
+              />
+            )}
+            {!edge.dashed && !reduced && (
+              <motion.g
+                aria-hidden="true"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: sourceIndex * 0.16 + 0.9 }}
+              >
+                <path
+                  d={d}
+                  fill="none"
+                  className="edge-flow"
+                  stroke={stroke}
+                  strokeWidth={1.5}
+                  strokeLinecap="round"
+                  style={{ animationDelay: `${sourceIndex * 0.45}s` }}
+                />
+              </motion.g>
+            )}
+            {edge.label &&
+              (() => {
+                const from = nodeById(spec, edge.from)
+                const to = nodeById(spec, edge.to)
+                const x1 = from.x + from.w / 2
+                const x2 = to.x + to.w / 2
+                const dip = from.y + NODE_H + 36
+                return (
+                  <text
+                    x={(x1 + x2) / 2}
+                    y={dip + 16}
+                    textAnchor="middle"
+                    fill="#EFEEE9"
+                    opacity={0.55}
+                    fontSize={12}
+                    fontFamily='"Instrument Serif", serif'
+                    fontStyle="italic"
+                    stroke="#121211"
+                    strokeWidth={4}
+                    paintOrder="stroke"
+                  >
+                    {edge.label}
+                  </text>
+                )
+              })()}
+          </g>
+        )
+      })}
 
       {spec.nodes.map((node, i) => (
         <motion.g
           key={node.id}
-          initial={reduced ? false : { opacity: 0.12, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          className="dg-node"
+          tabIndex={0}
+          initial={reduced ? false : { opacity: 0, scale: 0.94, y: 6 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.5, delay: i * 0.12, ease: 'easeOut' }}
+          transition={{ duration: 0.45, delay: i * 0.16, ease: 'easeOut' }}
+          style={{ transformBox: 'fill-box', transformOrigin: 'center' }}
         >
+          <title>
+            {node.label}
+            {node.sub ? ` — ${node.sub}` : ''}
+          </title>
           <rect
+            className="dg-glow"
+            x={node.x - 4}
+            y={node.y - 4}
+            width={node.w + 8}
+            height={NODE_H + 8}
+            rx={12}
+            fill={stroke}
+            opacity={0}
+          />
+          <rect
+            x={node.x}
+            y={node.y + 3}
+            width={node.w}
+            height={NODE_H}
+            rx={8}
+            fill="#0B0B0A"
+            opacity={0.45}
+          />
+          <rect
+            className="dg-box"
             x={node.x}
             y={node.y}
             width={node.w}
@@ -232,38 +307,57 @@ export function ProjectDiagram({ projectId, accent }: ProjectDiagramProps) {
             strokeWidth={1.5}
             strokeDasharray={node.redacted ? '3 4' : undefined}
           />
-          <text
-            x={node.x + node.w / 2}
-            y={node.y + (node.sub ? 19 : 26)}
-            textAnchor="middle"
-            fill="#EFEEE9"
-            opacity={node.redacted ? 0.35 : 0.95}
-            fontSize="11.5"
-            fontWeight="700"
-          >
-            {node.label}
-          </text>
+          <line
+            x1={node.x + 1}
+            x2={node.x + node.w - 1}
+            y1={node.y + 0.75}
+            y2={node.y + 0.75}
+            stroke="#EFEEE9"
+            strokeOpacity={0.08}
+          />
+          {node.redacted ? (
+            <motion.text
+              x={node.x + node.w / 2}
+              y={node.y + (node.sub ? 20 : 27)}
+              textAnchor="middle"
+              fill="#EFEEE9"
+              fontSize={13}
+              fontWeight={600}
+              animate={reduced ? { opacity: 0.35 } : { opacity: [0.3, 0.5, 0.3] }}
+              transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut', delay: i * 0.5 }}
+            >
+              {node.label}
+            </motion.text>
+          ) : (
+            <text
+              x={node.x + node.w / 2}
+              y={node.y + (node.sub ? 20 : 27)}
+              textAnchor="middle"
+              fill="#EFEEE9"
+              opacity={0.95}
+              fontSize={13}
+              fontWeight={600}
+            >
+              {node.label}
+            </text>
+          )}
           {node.sub && (
             <text
               x={node.x + node.w / 2}
-              y={node.y + 33}
+              y={node.y + 34}
               textAnchor="middle"
               fill="#EFEEE9"
-              opacity="0.45"
-              fontSize="9"
+              opacity={0.45}
+              fontSize={10}
+              fontFamily="ui-monospace, SFMono-Regular, Menlo, monospace"
+              letterSpacing="0.08em"
+              style={{ textTransform: 'uppercase' }}
             >
               {node.sub}
             </text>
           )}
         </motion.g>
       ))}
-
-      {/* Decorative flow token — one per figure, quiet loop */}
-      {spec.tokenPath && !reduced && (
-        <circle r={3.5} fill={stroke} aria-hidden="true" focusable="false">
-          <animateMotion dur="5s" repeatCount="indefinite" path={spec.tokenPath} />
-        </circle>
-      )}
     </svg>
   )
 }
