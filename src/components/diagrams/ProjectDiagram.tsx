@@ -99,6 +99,39 @@ const DIAGRAMS: Record<string, DiagramSpec> = {
       { from: 'testflight', to: 'build', loopback: true, dashed: true, label: 'iterate' },
     ],
   },
+  qplace: {
+    title: 'QPlace: select ≠ hydrate — the model picks widgets, deterministic code fills them',
+    nodes: [
+      { id: 'question', x: 8, y: 78, w: 92, label: 'Question', sub: 'intent' },
+      { id: 'router', x: 140, y: 78, w: 92, label: 'Router', sub: 'on-device' },
+      { id: 'select', x: 276, y: 18, w: 110, label: 'Select', sub: 'LLM · widgets' },
+      { id: 'hydrate', x: 276, y: 138, w: 110, label: 'Hydrate', sub: 'deterministic' },
+      { id: 'validate', x: 428, y: 78, w: 104, label: 'Validate', sub: 'gates' },
+      { id: 'screen', x: 568, y: 78, w: 64, label: 'Screen' },
+    ],
+    edges: [
+      { from: 'question', to: 'router' },
+      { from: 'router', to: 'select' },
+      { from: 'router', to: 'hydrate' },
+      { from: 'select', to: 'validate' },
+      { from: 'hydrate', to: 'validate' },
+      { from: 'validate', to: 'screen' },
+    ],
+  },
+  traveler: {
+    title: 'TravelerApp discovery: a plain-language wish becomes grounded places',
+    nodes: [
+      { id: 'wish', x: 8, y: 58, w: 88, label: 'Wish', sub: 'natural ask' },
+      { id: 'structure', x: 148, y: 58, w: 116, label: 'Structure', sub: 'Gemini · schema' },
+      { id: 'ground', x: 316, y: 58, w: 112, label: 'Ground', sub: 'Google Places' },
+      { id: 'surface', x: 480, y: 58, w: 100, label: 'Surface', sub: 'open now' },
+    ],
+    edges: [
+      { from: 'wish', to: 'structure' },
+      { from: 'structure', to: 'ground' },
+      { from: 'ground', to: 'surface' },
+    ],
+  },
   koi: {
     title: 'Koi Academy: process details are under NDA',
     nodes: [
@@ -111,6 +144,10 @@ const DIAGRAMS: Record<string, DiagramSpec> = {
       { from: 'b', to: 'c', dashed: true },
     ],
   },
+}
+
+export function hasDiagram(projectId: string): boolean {
+  return projectId in DIAGRAMS
 }
 
 function nodeById(spec: DiagramSpec, id: string): DiagramNode {

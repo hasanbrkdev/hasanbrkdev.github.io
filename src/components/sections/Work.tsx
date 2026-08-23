@@ -6,7 +6,7 @@ import { copy } from '../../content/copy'
 import { assets } from '../../content/assets'
 import { WordsPullUpMultiStyle } from '../animations/WordsPullUpMultiStyle'
 import { accentStyles } from '../ui/accents'
-import { ProjectDiagram } from '../diagrams/ProjectDiagram'
+import { ProjectDiagram, hasDiagram } from '../diagrams/ProjectDiagram'
 import { EASE_OUT, EASE_PANEL } from '../animations/motion'
 
 const panelVariants = {
@@ -61,8 +61,17 @@ export function Work() {
                     className={`h-2 w-2 shrink-0 rounded-full transition-transform duration-300 group-hover:scale-150 ${accent.dot}`}
                   />
                   <div className="min-w-0 flex-1">
-                    <span className="type-display block text-xl text-cream transition-all duration-300 group-hover:translate-x-2 group-hover:text-amber md:text-3xl">
-                      {project.name}
+                    <span className="flex flex-wrap items-center gap-3">
+                      <span className="type-display text-xl text-cream transition-all duration-300 group-hover:translate-x-2 group-hover:text-amber md:text-3xl">
+                        {project.name}
+                      </span>
+                      {project.badge && (
+                        <span
+                          className={`rounded-full border border-current px-2 py-0.5 text-[9px] uppercase tracking-[0.15em] opacity-80 ${accent.text}`}
+                        >
+                          {project.badge}
+                        </span>
+                      )}
                     </span>
                     <span className="mt-0.5 block text-xs text-cream/40 md:hidden">
                       {project.tagline}
@@ -111,6 +120,20 @@ export function Work() {
                                 <p className="mt-1 text-cream">{project.period}</p>
                               </div>
                             </div>
+                            {project.roleBullets && (
+                              <ul className="space-y-2.5">
+                                {project.roleBullets.map((bullet) => (
+                                  <li key={bullet} className="flex items-start gap-3">
+                                    <span
+                                      className={`mt-[0.55em] h-px w-4 shrink-0 ${accent.dot}`}
+                                    />
+                                    <span className="text-xs leading-snug text-cream/70">
+                                      {bullet}
+                                    </span>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
                             <div className="flex flex-wrap gap-x-4 gap-y-1.5">
                               {project.stack.map((tech) => (
                                 <span key={tech} className={`text-xs ${accent.text}`}>
@@ -123,16 +146,24 @@ export function Work() {
                                 <Lock className="h-3 w-3" strokeWidth={1.5} /> Under NDA
                               </p>
                             )}
-                            {project.link && (
-                              <a
-                                href={project.link}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="group/link inline-flex items-center gap-1 text-xs font-semibold text-cream underline-offset-4 hover:underline"
-                              >
-                                Visit{' '}
-                                <ArrowUpRight className="h-3 w-3 transition-transform duration-300 group-hover/link:-translate-y-[0.14em] group-hover/link:translate-x-[0.14em]" />
-                              </a>
+                            {(project.links || project.link) && (
+                              <div className="flex flex-col gap-2 pt-1">
+                                {(
+                                  project.links ??
+                                  (project.link ? [{ label: 'Visit', url: project.link }] : [])
+                                ).map((l) => (
+                                  <a
+                                    key={l.url}
+                                    href={l.url}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="group/link inline-flex items-center gap-1.5 text-xs font-semibold text-cream underline-offset-4 hover:underline"
+                                  >
+                                    {l.label}
+                                    <ArrowUpRight className="h-3 w-3 transition-transform duration-300 group-hover/link:-translate-y-[0.14em] group-hover/link:translate-x-[0.14em]" />
+                                  </a>
+                                ))}
+                              </div>
                             )}
                           </div>
                         </motion.div>
@@ -157,14 +188,28 @@ export function Work() {
                               />
                             </motion.div>
                           )}
-                          <motion.div variants={panelItemVariants} className="min-w-0">
-                            <p className="type-micro text-[10px] text-cream/40">How it works</p>
-                            <div className="mt-4 overflow-x-auto rounded-lg border border-cream/10 bg-navy/40">
-                              <div className="min-w-[540px] p-4 md:p-6">
-                                <ProjectDiagram projectId={project.id} accent={project.accent} />
+                          {project.detail && (
+                            <motion.div variants={panelItemVariants} className="space-y-3">
+                              {project.detail.map((paragraph) => (
+                                <p
+                                  key={paragraph.slice(0, 32)}
+                                  className="border-l border-cream/10 pl-4 text-sm leading-relaxed text-cream/60"
+                                >
+                                  {paragraph}
+                                </p>
+                              ))}
+                            </motion.div>
+                          )}
+                          {hasDiagram(project.id) && (
+                            <motion.div variants={panelItemVariants} className="min-w-0">
+                              <p className="type-micro text-[10px] text-cream/40">How it works</p>
+                              <div className="mt-4 overflow-x-auto rounded-lg border border-cream/10 bg-navy/40">
+                                <div className="min-w-[540px] p-4 md:p-6">
+                                  <ProjectDiagram projectId={project.id} accent={project.accent} />
+                                </div>
                               </div>
-                            </div>
-                          </motion.div>
+                            </motion.div>
+                          )}
                         </div>
                       </motion.div>
                     </motion.div>
