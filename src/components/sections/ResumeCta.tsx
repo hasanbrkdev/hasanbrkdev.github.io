@@ -39,10 +39,10 @@ export function ResumeCta() {
           viewport={VIEWPORT}
           className="flex flex-col items-start justify-center gap-5 px-6 py-16 sm:px-10 md:py-24"
         >
-          <motion.p variants={itemVariants} className="type-eyebrow text-[10px] text-night/50 sm:text-xs">
-            {copy.resumeCta.label}
-          </motion.p>
-          <motion.h2 variants={itemVariants} className="font-serif text-3xl italic md:text-4xl">
+          <motion.h2
+            variants={itemVariants}
+            className="font-serif text-6xl italic leading-none md:text-7xl"
+          >
             {copy.resumeCta.heading}
           </motion.h2>
           <motion.p
@@ -65,6 +65,9 @@ export function ResumeCta() {
               </span>
             </Link>
           </motion.div>
+          <motion.p variants={itemVariants} className="type-micro text-[10px] text-night/40">
+            {copy.resumeCta.meta}
+          </motion.p>
         </motion.div>
 
         <div

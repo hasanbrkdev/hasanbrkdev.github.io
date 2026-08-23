@@ -25,6 +25,13 @@ export function Footer() {
           className="justify-center gap-x-[0.28em] text-4xl sm:text-5xl md:text-7xl"
         />
         <p className="mt-5 text-sm text-cream/50 md:text-base">{copy.footer.body}</p>
+        <div className="mt-6 flex items-center justify-center gap-2.5 text-sm text-cream/70">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-moss opacity-60" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-moss" />
+          </span>
+          {copy.footer.availability}
+        </div>
         <a
           href={`mailto:${profile.identity.email}`}
           className="group mt-8 inline-flex items-center gap-2 rounded-full bg-amber py-1.5 pl-5 pr-1.5 text-sm font-semibold text-night transition-all hover:gap-3 sm:text-base"
@@ -83,7 +90,7 @@ export function Footer() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-12 border-t border-cream/10 pt-6 text-xs text-cream/40"
         >
-          {profile.identity.location} · © 2026 {profile.identity.name}
+          {profile.identity.location} · © 2026 · {copy.footer.credit}
         </motion.p>
       </div>
     </footer>

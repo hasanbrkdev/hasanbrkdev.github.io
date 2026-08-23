@@ -11,7 +11,7 @@ export const copy = {
     year: '2026',
     siteIndexLabel: 'Site Index',
     findMeLabel: 'Find Me',
-    footerLeft: ['Software & AI Engineer', 'Systems · Media · Products', 'Builder of cozy little worlds'],
+    footerLeft: ['Software & AI Engineer', 'Systems · Media · Products', 'From architecture to App Store'],
     footerRight: ['İzmir, Turkey', 'GMT+3'],
   },
   specialities: {
@@ -32,15 +32,17 @@ export const copy = {
     line2: 'to systems that create.',
   },
   resumeCta: {
-    label: 'Résumé',
-    heading: 'Need the paper version?',
-    body: 'A print-ready PDF, generated from the same data as this site — always current, tailored per application, every version tracked.',
-    button: 'Open résumé builder',
+    heading: 'Résumé.',
+    body: 'The same content as this site, typeset for A4 — always current, tailored per application, and every version tracked in git.',
+    button: 'Open & download',
+    meta: 'PDF · A4 · generated in your browser',
   },
   footer: {
     heading: 'Let’s build something.',
     body: 'Open to product engineering, AI pipeline and creative platform work.',
+    availability: 'Open to work — job opportunities · freelance · consultancy',
     emailButton: 'Say hello',
+    credit: 'Designed & developed by Hasan Burak Özdemir',
   },
   resumePage: {
     title: 'Résumé',
