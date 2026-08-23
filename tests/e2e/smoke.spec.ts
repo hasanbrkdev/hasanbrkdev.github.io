@@ -15,6 +15,15 @@ test('project row expands and shows the process diagram', async ({ page }) => {
   await expect(page.locator('#work')).toContainText('Agentic pipelines & studio modules')
 })
 
+test('ambient loop videos render in project panel and specialities', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: /Lumos Generative AI/ }).click()
+  const panelVideo = page.locator('#work video')
+  await expect(panelVideo).toBeVisible()
+  await expect(panelVideo).toHaveAttribute('poster', /lumos-poster\.jpg/)
+  await expect(page.locator('#specialities video')).toHaveCount(1)
+})
+
 test('resume page renders and downloads a PDF', async ({ page }) => {
   await page.goto('/#/resume')
   await expect(page.getByText('Hasan Burak Özdemir').first()).toBeVisible()

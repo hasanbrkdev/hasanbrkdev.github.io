@@ -50,24 +50,45 @@ export function Specialities() {
           />
         </div>
 
-        {assets.specialitiesImage && (
+        {(assets.specialitiesImage || assets.specialitiesLoop) && (
           <div
             ref={panoRef}
-            className="relative mt-12 aspect-[21/9] w-full overflow-hidden rounded-xl"
+            className="relative mt-12 aspect-[2/1] w-full overflow-hidden rounded-xl"
           >
-            <motion.img
-              src={assets.specialitiesImage}
-              alt="Cozy illustrated workspace"
-              initial={{ opacity: 0, scale: 1.06 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={VIEWPORT}
-              transition={{
-                opacity: { duration: 0.8 },
-                scale: { duration: 5, ease: EASE_OUT },
-              }}
-              className="absolute inset-x-0 -top-[6%] h-[112%] w-full object-cover"
-              style={reduced ? undefined : { y: panoY }}
-            />
+            {assets.specialitiesLoop && !reduced ? (
+              <motion.video
+                src={assets.specialitiesLoop.video}
+                poster={assets.specialitiesLoop.poster}
+                aria-label="Cozy illustrated workspace"
+                autoPlay
+                loop
+                muted
+                playsInline
+                initial={{ opacity: 0, scale: 1.06 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={VIEWPORT}
+                transition={{
+                  opacity: { duration: 0.8 },
+                  scale: { duration: 5, ease: EASE_OUT },
+                }}
+                className="absolute inset-x-0 -top-[6%] h-[112%] w-full object-cover"
+                style={{ y: panoY }}
+              />
+            ) : (
+              <motion.img
+                src={assets.specialitiesImage ?? assets.specialitiesLoop?.poster}
+                alt="Cozy illustrated workspace"
+                initial={{ opacity: 0, scale: 1.06 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={VIEWPORT}
+                transition={{
+                  opacity: { duration: 0.8 },
+                  scale: { duration: 5, ease: EASE_OUT },
+                }}
+                className="absolute inset-x-0 -top-[6%] h-[112%] w-full object-cover"
+                style={reduced ? undefined : { y: panoY }}
+              />
+            )}
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-night/60 via-transparent to-transparent" />
             <motion.p
               initial={{ y: 12, opacity: 0 }}

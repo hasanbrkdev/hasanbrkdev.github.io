@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { Plus, Lock, ArrowUpRight } from 'lucide-react'
 import { profile } from '../../content/profile'
 import { copy } from '../../content/copy'
@@ -21,6 +21,7 @@ const panelItemVariants = {
 
 export function Work() {
   const [openId, setOpenId] = useState<string | null>(null)
+  const reduced = useReducedMotion()
 
   return (
     <section id="work" className="border-t border-cream/10 bg-night px-6 py-24 sm:px-10 md:py-32">
@@ -47,6 +48,7 @@ export function Work() {
             const accent = accentStyles[project.accent]
             const isOpen = openId === project.id
             const art = assets.projectArt[project.id]
+            const loopMedia = assets.projectLoops[project.id]
             return (
               <div key={project.id} className="border-b border-cream/10">
                 <button
@@ -169,23 +171,43 @@ export function Work() {
                         </motion.div>
 
                         <div className="min-w-0 space-y-6 lg:col-span-3">
-                          {art && (
+                          {(art || loopMedia) && (
                             <motion.div
                               variants={panelItemVariants}
-                              className="relative aspect-[21/10] overflow-hidden rounded-lg"
+                              className="relative aspect-video overflow-hidden rounded-lg"
                             >
-                              <motion.img
-                                src={art}
-                                alt={`${project.name} — illustrated scene`}
-                                initial={{ scale: 1.06 }}
-                                animate={{ scale: 1 }}
-                                transition={{ duration: 5, ease: EASE_OUT }}
-                                whileHover={{
-                                  scale: 1.03,
-                                  transition: { duration: 0.9, ease: EASE_OUT },
-                                }}
-                                className="absolute inset-0 h-full w-full object-cover"
-                              />
+                              {loopMedia && !reduced ? (
+                                <motion.video
+                                  src={loopMedia.video}
+                                  poster={loopMedia.poster}
+                                  aria-label={`${project.name} — illustrated scene`}
+                                  autoPlay
+                                  loop
+                                  muted
+                                  playsInline
+                                  initial={{ scale: 1.06 }}
+                                  animate={{ scale: 1 }}
+                                  transition={{ duration: 5, ease: EASE_OUT }}
+                                  whileHover={{
+                                    scale: 1.03,
+                                    transition: { duration: 0.9, ease: EASE_OUT },
+                                  }}
+                                  className="absolute inset-0 h-full w-full object-cover"
+                                />
+                              ) : (
+                                <motion.img
+                                  src={art ?? loopMedia?.poster}
+                                  alt={`${project.name} — illustrated scene`}
+                                  initial={{ scale: 1.06 }}
+                                  animate={{ scale: 1 }}
+                                  transition={{ duration: 5, ease: EASE_OUT }}
+                                  whileHover={{
+                                    scale: 1.03,
+                                    transition: { duration: 0.9, ease: EASE_OUT },
+                                  }}
+                                  className="absolute inset-0 h-full w-full object-cover"
+                                />
+                              )}
                             </motion.div>
                           )}
                           {project.detail && (
