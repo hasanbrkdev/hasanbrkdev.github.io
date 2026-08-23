@@ -205,6 +205,69 @@ export const profile: Profile = {
       accent: 'skyblue',
       confidential: true,
     },
+    {
+      id: 'meta-learner',
+      name: 'Neural Meta-Learner',
+      tagline: 'Squeezing more out of a trained model',
+      description:
+        'A stacked-generalization study: instead of retraining, freeze a strong CatBoost base and learn a neural meta-head on top of its class probabilities concatenated with the original features — a 61-dimensional meta-space.',
+      role: 'ML research',
+      stack: ['Stacked generalization', 'PyTorch', 'CatBoost', 'LightGBM', 'scikit-learn', 'Stratified 5-fold CV'],
+      period: '2025',
+      accent: 'moss',
+      badge: 'Research',
+      detail: [
+        'Three heterogeneous meta-learners compete on the meta-space — Logistic Regression, LightGBM and a shallow PyTorch network — each scored under stratified 5-fold cross-validation. The neural head wins by learning to correct the base model’s systematic, overconfident errors.',
+        'Result: F1 lifted from 87.3% to 89.8% and ROC-AUC to 96%, without touching the base model.',
+      ],
+      roleBullets: [
+        'Stacked-generalization design over a frozen CatBoost base',
+        'Neural meta-head in PyTorch, benchmarked against LR / LightGBM',
+        'Evaluation protocol: stratified 5-fold CV on F1 / ROC-AUC',
+      ],
+    },
+    {
+      id: 'ml-eval',
+      name: 'Comparative ML Evaluation',
+      tagline: 'Model selection as a controlled experiment',
+      description:
+        'Eight classifiers — from Logistic Regression to XGBoost, LightGBM and CatBoost — held to one identical preprocessing and evaluation protocol, so the algorithm itself is the only variable. Not a leaderboard chase; an experiment.',
+      role: 'ML research',
+      stack: ['Experiment design', 'Feature engineering', 'CatBoost · XGBoost · LightGBM', 'RandomizedSearchCV', 'scikit-learn', 'pandas'],
+      period: '2025',
+      accent: 'gold',
+      badge: 'Research',
+      detail: [
+        'On a 7,439-row dataset: 42 leakage-prone columns dropped, 27 difference and advantage features engineered, baselines ranked on a stratified split, then the front-runner tuned with RandomizedSearchCV and scored on weighted F1 and ROC-AUC.',
+        'CatBoost led at 80.6% accuracy and 0.886 ROC-AUC — with relative advantages between entities proving more predictive than raw individual stats.',
+      ],
+      roleBullets: [
+        'Controlled experiment design — one fixed protocol, model family as the only variable',
+        'Leakage control & 27 engineered features',
+        'Eight-classifier benchmark with hyperparameter search',
+      ],
+    },
+    {
+      id: 'colorization',
+      name: 'Deep Learning Colorization',
+      tagline: 'Grayscale to color, three architectures',
+      description:
+        'Automatic grayscale colorization framed as a/b-chrominance regression in CIE Lab: the luminance channel goes in, the two color channels come out, and a recombined color image comes back.',
+      role: 'ML research',
+      stack: ['CIE Lab regression', 'U-Net', 'ResNet50 transfer learning', 'TensorFlow / Keras', 'PSNR / SSIM', 'OpenCV'],
+      period: '2024',
+      accent: 'rose',
+      badge: 'Research',
+      detail: [
+        'Rather than betting on one network, three architectures built and compared in TensorFlow/Keras to isolate what actually moves the needle: a plain convolutional autoencoder, a U-Net with skip connections, and a ResNet50-UNet reusing an ImageNet-pretrained encoder.',
+        'Scored on PSNR and SSIM with a pairwise t-test on per-image results, the U-Net landed the best accuracy-to-cost ratio: skip connections gave a statistically significant lift, while transfer learning added only marginal gains.',
+      ],
+      roleBullets: [
+        'ab-chrominance regression design in CIE Lab color space',
+        'Architecture comparison: autoencoder vs U-Net vs ResNet50-UNet',
+        'Statistical evaluation: PSNR / SSIM with pairwise t-test',
+      ],
+    },
   ],
 
   journey: [
@@ -256,6 +319,7 @@ export const profile: Profile = {
           'LLM orchestration (Claude, GPT)',
           'Agentic workflows & prompt systems',
           'Generative media pipelines (Seedance, diffusion models)',
+          'Model training & evaluation (PyTorch, CatBoost, TensorFlow/Keras)',
         ],
       },
       {
@@ -276,6 +340,7 @@ export const profile: Profile = {
           'Built a brief-to-campaign content automation platform (Next.js, Supabase, Remotion) with an approval workflow and programmatic rendering.',
           'Built the website and interactive exhibition simulation for GIA Creative Studio.',
           'Full-stack development for Koi Academy across web and mobile (under NDA).',
+          'Applied ML research: stacked-generalization meta-learning (F1 87.3% → 89.8%), an eight-classifier controlled benchmark, and deep-learning image colorization in CIE Lab.',
         ],
       },
       {
