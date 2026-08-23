@@ -2,23 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  font-family: 'Almarai', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-    'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
+/* framer-motion useScroll measures targets against the scroll container
+   (document.documentElement by default); a static-positioned container
+   triggers its dev warning. Relative here is geometrically identical. */
 html {
-  scroll-behavior: smooth;
+  position: relative;
 }
 
 body {
   background-color: #121211;
   color: #efeee9;
+  font-family: 'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 ::selection {
   background-color: #e8a44c;
-  color: #0a0f1c;
+  color: #121211;
+}
+
+:focus-visible {
+  outline: 2px solid rgb(232 164 76 / 0.8);
+  outline-offset: 3px;
+}
+
+/* --- Typographic role classes (Archivo variable axes) --- */
+@layer components {
+  .type-marquee { font-weight: 620; font-stretch: 125%; letter-spacing: -0.03em; }
+  .type-display { font-weight: 350; font-stretch: 105%; letter-spacing: -0.015em; line-height: 1.08; }
+  .type-title   { font-weight: 600; letter-spacing: -0.005em; }
+  .type-eyebrow { font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; }
+  .type-micro   { font-weight: 500; font-stretch: 87.5%; letter-spacing: 0.18em; text-transform: uppercase; }
+  .tnum         { font-variant-numeric: tabular-nums; }
 }
 
 /* Fractal noise overlay for hero media */
@@ -98,14 +118,90 @@ body {
   animation: anim-line-kf 1.1s cubic-bezier(0.76, 0, 0.24, 1) both;
 }
 
+@keyframes anim-slide-r-kf {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.anim-slide-r {
+  animation: anim-slide-r-kf 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes anim-drop-kf {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.anim-drop {
+  animation: anim-drop-kf 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* --- Diagram flow (replaces SMIL token) --- */
+
+/* 10px accent pulse travelling along solid edges; period = dasharray sum (10 + 110). */
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -120;
+  }
+}
+.edge-flow {
+  stroke-dasharray: 10 110;
+  stroke-dashoffset: 0;
+  opacity: 0.9;
+  animation: dash-flow 3.6s linear infinite;
+}
+
+/* Dashed-edge drift; period = '4 5' dash pattern sum (9) for a seamless loop. */
+@keyframes dash-drift {
+  to {
+    stroke-dashoffset: -9;
+  }
+}
+.diagram-dash {
+  animation: dash-drift 1.2s linear infinite;
+}
+
+.dg-node .dg-glow {
+  transition: opacity 0.35s;
+}
+.dg-node:hover .dg-glow {
+  opacity: 0.14;
+}
+.dg-node rect.dg-box {
+  transition: stroke-opacity 0.35s;
+}
+.dg-node:hover rect.dg-box {
+  stroke-opacity: 1;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .marquee,
   .anim-fade-in,
   .anim-rise-in,
   .anim-fade-up,
-  .anim-line {
+  .anim-line,
+  .anim-slide-r,
+  .anim-drop {
     animation-duration: 0.01ms !important;
     animation-delay: 0ms !important;
     animation-iteration-count: 1 !important;
+  }
+
+  .edge-flow {
+    animation: none;
+    opacity: 0;
+  }
+  .diagram-dash {
+    animation: none;
   }
 }

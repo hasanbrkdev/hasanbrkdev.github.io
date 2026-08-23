@@ -15,7 +15,8 @@ export default {
         gold: '#D9B96E',
       },
       fontFamily: {
-        serif: ['"Instrument Serif"', 'serif'],
+        sans: ['Archivo', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+        serif: ['"Instrument Serif"', 'Georgia', 'serif'],
       },
     },
   },
