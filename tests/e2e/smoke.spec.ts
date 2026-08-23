@@ -12,7 +12,7 @@ test('project row expands and shows the process diagram', async ({ page }) => {
   await page.goto('/')
   await page.getByRole('button', { name: /Lumos Generative AI/ }).click()
   await expect(page.locator('svg[aria-label*="Lumos"]')).toBeVisible()
-  await expect(page.locator('#work')).toContainText('Pipeline architecture & AI orchestration')
+  await expect(page.locator('#work')).toContainText('Agentic pipelines & studio modules')
 })
 
 test('resume page renders and downloads a PDF', async ({ page }) => {
