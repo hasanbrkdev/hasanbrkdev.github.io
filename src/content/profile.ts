@@ -84,7 +84,7 @@ export const profile: Profile = {
       description:
         'A multi-agent AI platform for film and animation production — an LLM brain plans, a role-assigned agent crew executes, and a model-agnostic dispatcher drives 8+ image and video engines. The Lumos channel runs on it: videos produced script-to-screen with no human in the loop.',
       role: 'Agentic pipelines & studio modules',
-      stack: ['Multi-agent orchestration', 'LLM planner / executor', 'Vision QC', 'Next.js', 'Python', 'Remotion', 'FFmpeg'],
+      stack: ['Multi-agent orchestration', 'LLM planner / executor', 'Role-assigned agent crew', 'Vision QC', 'Model-agnostic dispatch', 'Next.js', 'Python'],
       period: '2025 — Present',
       accent: 'gold',
       badge: 'Building',

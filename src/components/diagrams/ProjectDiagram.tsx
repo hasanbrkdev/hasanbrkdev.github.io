@@ -41,7 +41,7 @@ const DIAGRAMS: Record<string, DiagramSpec> = {
       { id: 'script', x: 126, y: 78, w: 96, label: 'Script', sub: 'LLM' },
       { id: 'narration', x: 268, y: 18, w: 108, label: 'Narration', sub: 'TTS' },
       { id: 'visuals', x: 268, y: 138, w: 108, label: 'Visuals', sub: 'gen video' },
-      { id: 'assemble', x: 410, y: 78, w: 136, label: 'Assemble', sub: 'Remotion · FFmpeg' },
+      { id: 'assemble', x: 410, y: 78, w: 136, label: 'Assemble', sub: 'edit & render' },
       { id: 'publish', x: 566, y: 78, w: 68, label: 'Publish' },
     ],
     edges: [
