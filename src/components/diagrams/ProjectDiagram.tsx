@@ -226,7 +226,7 @@ export function ProjectDiagram({ projectId, accent }: ProjectDiagramProps) {
             width={node.w}
             height={NODE_H}
             rx={8}
-            fill="#121B2E"
+            fill="#1C1B18"
             stroke={node.redacted ? '#EFEEE9' : stroke}
             strokeOpacity={node.redacted ? 0.25 : 0.7}
             strokeWidth={1.5}

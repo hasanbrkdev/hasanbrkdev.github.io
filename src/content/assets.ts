@@ -9,9 +9,15 @@ export const assets: {
   projectArt: Record<string, string>
 } = {
   heroVideo: null,
-  heroImage: null,
+  heroImage: '/assets/hero.jpg',
   heroCutout: null,
-  specialitiesImage: null,
+  specialitiesImage: '/assets/specialities.jpg',
   resumeImage: null,
-  projectArt: {},
+  projectArt: {
+    lumos: '/assets/lumos.jpg',
+    gia: '/assets/gia.jpg',
+    carousel: '/assets/carousel.jpg',
+    reconchille: '/assets/reconchille.jpg',
+    koi: '/assets/koi.jpg',
+  },
 }

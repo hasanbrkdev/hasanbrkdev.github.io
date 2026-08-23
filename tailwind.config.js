@@ -4,13 +4,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        night: '#0A0F1C',
-        navy: '#121B2E',
-        steel: '#1B2740',
+        night: '#121211',
+        navy: '#1C1B18',
+        steel: '#262521',
         cream: '#EFEEE9',
         amber: '#E8A44C',
         moss: '#8FA98B',
-        skyblue: '#8FB6D9',
+        skyblue: '#7FAEA3',
         rose: '#D98E73',
         gold: '#D9B96E',
       },

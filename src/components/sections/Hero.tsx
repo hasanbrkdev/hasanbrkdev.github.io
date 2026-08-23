@@ -50,7 +50,7 @@ export function Hero() {
           className="anim-fade-in absolute inset-0 h-full w-full object-cover"
         />
       ) : (
-        <div className="anim-fade-in absolute inset-0 bg-gradient-to-b from-[#0A0F1C] via-[#101A30] to-[#1A2440]">
+        <div className="anim-fade-in absolute inset-0 bg-gradient-to-b from-[#0F0F0E] via-[#161511] to-[#241F15]">
           <div className="absolute bottom-0 left-1/2 h-[30vh] w-[80vw] -translate-x-1/2 rounded-[100%] bg-amber/15 blur-3xl" />
         </div>
       )}
@@ -178,7 +178,7 @@ export function Hero() {
           }`}
         />
         <div
-          className={`fixed inset-y-0 right-0 z-40 w-[80%] max-w-sm bg-[#0E1524] px-8 py-10 transition-transform duration-[600ms] [transition-timing-function:cubic-bezier(0.76,0,0.24,1)] ${
+          className={`fixed inset-y-0 right-0 z-40 w-[80%] max-w-sm bg-[#1B1A17] px-8 py-10 transition-transform duration-[600ms] [transition-timing-function:cubic-bezier(0.76,0,0.24,1)] ${
             drawerOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
