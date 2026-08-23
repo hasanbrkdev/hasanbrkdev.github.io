@@ -12,16 +12,16 @@ html {
 }
 
 body {
-  background-color: #f6f1e7;
-  color: #2b2620;
+  background-color: #0a0f1c;
+  color: #efeee9;
 }
 
 ::selection {
-  background-color: #d96f4e;
-  color: #fffdf8;
+  background-color: #e8a44c;
+  color: #0a0f1c;
 }
 
-/* Fractal noise overlay for hero media (subtle in light theme) */
+/* Fractal noise overlay for hero media */
 .noise-overlay {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
@@ -29,4 +29,83 @@ body {
 /* Softer noise for section backgrounds */
 .bg-noise {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* --- Editorial hero animations (Marcus pattern) --- */
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee {
+  animation: marquee-scroll 30s linear infinite;
+}
+
+@keyframes anim-fade-in-kf {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.anim-fade-in {
+  animation: anim-fade-in-kf 1.2s ease-out both;
+}
+
+@keyframes anim-rise-in-kf {
+  from {
+    opacity: 0;
+    transform: translateY(4vh) scale(1.03);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.anim-rise-in {
+  animation: anim-rise-in-kf 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes anim-fade-up-kf {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.anim-fade-up {
+  animation: anim-fade-up-kf 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes anim-line-kf {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.anim-line {
+  transform-origin: left;
+  animation: anim-line-kf 1.1s cubic-bezier(0.76, 0, 0.24, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee,
+  .anim-fade-in,
+  .anim-rise-in,
+  .anim-fade-up,
+  .anim-line {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }

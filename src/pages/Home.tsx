@@ -8,7 +8,7 @@ import { Footer } from '../components/sections/Footer'
 
 export default function Home() {
   return (
-    <main className="bg-paper">
+    <main className="bg-night">
       <Hero />
       <About />
       <Specialities />

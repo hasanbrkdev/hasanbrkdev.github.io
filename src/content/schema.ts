@@ -16,7 +16,7 @@ export const specialitySchema = z.object({
   blurb: z.string().min(1),
   points: z.array(z.string().min(1)).min(2),
   icon: z.enum(['brain', 'layers', 'clapperboard']),
-  accent: z.enum(['terracotta', 'sage', 'sky', 'peach', 'butter']),
+  accent: z.enum(['amber', 'moss', 'skyblue', 'rose', 'gold']),
 })
 
 export const projectSchema = z.object({
@@ -27,7 +27,7 @@ export const projectSchema = z.object({
   role: z.string().min(1),
   stack: z.array(z.string().min(1)).min(1),
   period: z.string().min(1),
-  accent: z.enum(['terracotta', 'sage', 'sky', 'peach', 'butter']),
+  accent: z.enum(['amber', 'moss', 'skyblue', 'rose', 'gold']),
   link: z.string().url().optional(),
   confidential: z.boolean().optional(),
 })

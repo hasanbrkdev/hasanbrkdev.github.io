@@ -12,7 +12,7 @@ export default function App() {
         <Route
           path="/resume"
           element={
-            <Suspense fallback={<div className="min-h-screen bg-paper" />}>
+            <Suspense fallback={<div className="min-h-screen bg-night" />}>
               <ResumePage />
             </Suspense>
           }

@@ -2,12 +2,18 @@
 export const copy = {
   nav: [
     { label: 'About', target: 'about' },
-    { label: 'Specialities', target: 'specialities' },
     { label: 'Work', target: 'work' },
     { label: 'Journey', target: 'journey' },
     { label: 'Contact', target: 'contact' },
   ],
   navResumeLabel: 'Résumé',
+  hero: {
+    year: '2026',
+    siteIndexLabel: 'Site Index',
+    findMeLabel: 'Find Me',
+    footerLeft: ['Software & AI Engineer', 'Systems · Media · Products', 'Builder of cozy little worlds'],
+    footerRight: ['İzmir, Turkey', 'GMT+3'],
+  },
   specialities: {
     label: 'Specialities',
     line1: 'Studio-grade engineering for AI-native products.',

@@ -48,7 +48,7 @@ export const profile: Profile = {
         'Unattended batch automation at production scale',
       ],
       icon: 'brain',
-      accent: 'terracotta',
+      accent: 'amber',
     },
     {
       id: 'fullstack',
@@ -60,7 +60,7 @@ export const profile: Profile = {
         'Testing, CI and GitHub-native delivery',
       ],
       icon: 'layers',
-      accent: 'sage',
+      accent: 'moss',
     },
     {
       id: 'generative-media',
@@ -72,7 +72,7 @@ export const profile: Profile = {
         'Script-to-screen publishing automation',
       ],
       icon: 'clapperboard',
-      accent: 'sky',
+      accent: 'skyblue',
     },
   ],
 
@@ -86,7 +86,7 @@ export const profile: Profile = {
       role: 'Pipeline architecture & AI orchestration',
       stack: ['Python', 'TypeScript', 'LLM orchestration', 'Remotion', 'FFmpeg'],
       period: '2025 — Present',
-      accent: 'butter',
+      accent: 'gold',
     },
     {
       id: 'gia',
@@ -97,7 +97,7 @@ export const profile: Profile = {
       role: 'Web development & interactive experience',
       stack: ['TypeScript', 'React', 'Creative web'],
       period: '2025',
-      accent: 'peach',
+      accent: 'rose',
     },
     {
       id: 'carousel',
@@ -108,7 +108,7 @@ export const profile: Profile = {
       role: 'Full-stack development & render pipeline',
       stack: ['Next.js', 'Supabase', 'Remotion', 'Claude agent skills'],
       period: '2025 — Present',
-      accent: 'terracotta',
+      accent: 'amber',
     },
     {
       id: 'reconchille',
@@ -119,7 +119,7 @@ export const profile: Profile = {
       role: 'Mobile development & deployment',
       stack: ['Cross-platform mobile', 'Product delivery'],
       period: '2025',
-      accent: 'sage',
+      accent: 'moss',
     },
     {
       id: 'koi',
@@ -130,7 +130,7 @@ export const profile: Profile = {
       role: 'Full-stack development',
       stack: ['Web', 'Mobile', 'Full-stack'],
       period: '2025 — Present',
-      accent: 'sky',
+      accent: 'skyblue',
       confidential: true,
     },
   ],

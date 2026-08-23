@@ -4,19 +4,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        paper: '#F6F1E7',
-        surface: '#FDFAF2',
-        card: '#FFFDF8',
-        ink: {
-          DEFAULT: '#2B2620',
-          soft: '#5C5347',
-          faint: '#8A7F6F',
-        },
-        terracotta: '#D96F4E',
-        peach: '#F2B28C',
-        sage: '#9CAF88',
-        sky: '#A8C7D8',
-        butter: '#F2D399',
+        night: '#0A0F1C',
+        navy: '#121B2E',
+        steel: '#1B2740',
+        cream: '#EFEEE9',
+        amber: '#E8A44C',
+        moss: '#8FA98B',
+        skyblue: '#8FB6D9',
+        rose: '#D98E73',
+        gold: '#D9B96E',
       },
       fontFamily: {
         serif: ['"Instrument Serif"', 'serif'],

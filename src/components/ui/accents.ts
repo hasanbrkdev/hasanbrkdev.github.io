@@ -1,38 +1,43 @@
-// Full class strings so Tailwind's JIT can see them.
-export type AccentName = 'terracotta' | 'sage' | 'sky' | 'peach' | 'butter'
+// Full class strings so Tailwind's JIT can see them. Dark editorial palette.
+export type AccentName = 'amber' | 'moss' | 'skyblue' | 'rose' | 'gold'
 
 export const accentStyles: Record<
   AccentName,
-  { chip: string; dot: string; text: string; soft: string }
+  { chip: string; dot: string; text: string; soft: string; stroke: string }
 > = {
-  terracotta: {
-    chip: 'bg-terracotta/15 text-terracotta',
-    dot: 'bg-terracotta',
-    text: 'text-terracotta',
-    soft: 'bg-terracotta/10',
+  amber: {
+    chip: 'bg-amber/15 text-amber',
+    dot: 'bg-amber',
+    text: 'text-amber',
+    soft: 'bg-amber/10',
+    stroke: '#E8A44C',
   },
-  sage: {
-    chip: 'bg-sage/20 text-sage',
-    dot: 'bg-sage',
-    text: 'text-sage',
-    soft: 'bg-sage/10',
+  moss: {
+    chip: 'bg-moss/15 text-moss',
+    dot: 'bg-moss',
+    text: 'text-moss',
+    soft: 'bg-moss/10',
+    stroke: '#8FA98B',
   },
-  sky: {
-    chip: 'bg-sky/25 text-sky',
-    dot: 'bg-sky',
-    text: 'text-sky',
-    soft: 'bg-sky/10',
+  skyblue: {
+    chip: 'bg-skyblue/15 text-skyblue',
+    dot: 'bg-skyblue',
+    text: 'text-skyblue',
+    soft: 'bg-skyblue/10',
+    stroke: '#8FB6D9',
   },
-  peach: {
-    chip: 'bg-peach/25 text-terracotta',
-    dot: 'bg-peach',
-    text: 'text-terracotta',
-    soft: 'bg-peach/10',
+  rose: {
+    chip: 'bg-rose/15 text-rose',
+    dot: 'bg-rose',
+    text: 'text-rose',
+    soft: 'bg-rose/10',
+    stroke: '#D98E73',
   },
-  butter: {
-    chip: 'bg-butter/30 text-ink-soft',
-    dot: 'bg-butter',
-    text: 'text-ink-soft',
-    soft: 'bg-butter/15',
+  gold: {
+    chip: 'bg-gold/15 text-gold',
+    dot: 'bg-gold',
+    text: 'text-gold',
+    soft: 'bg-gold/10',
+    stroke: '#D9B96E',
   },
 }
