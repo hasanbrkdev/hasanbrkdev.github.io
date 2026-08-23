@@ -156,7 +156,7 @@ export function Hero() {
       />
 
       {/* Hero footer */}
-      <footer className="absolute inset-x-0 bottom-0 z-10 flex items-end justify-between px-6 pb-5 text-xs leading-relaxed sm:px-10 sm:pb-8 sm:text-sm">
+      <footer className="absolute inset-x-0 bottom-0 z-30 flex items-end justify-between px-6 pb-5 text-xs leading-relaxed sm:z-10 sm:px-10 sm:pb-8 sm:text-sm">
         <div className="anim-fade-up text-cream" style={{ animationDelay: '1400ms' }}>
           {copy.hero.footerLeft.map((line) => (
             <p key={line}>{line}</p>

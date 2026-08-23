@@ -10,7 +10,7 @@ export const assets: {
 } = {
   heroVideo: null,
   heroImage: '/assets/hero.jpg',
-  heroCutout: null,
+  heroCutout: '/assets/hero-cutout.png',
   specialitiesImage: '/assets/specialities.jpg',
   resumeImage: null,
   projectArt: {

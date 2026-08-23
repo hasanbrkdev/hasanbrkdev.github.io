@@ -1,5 +1,17 @@
-import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer'
+import { Document, Page, Text, View, StyleSheet, Font } from '@react-pdf/renderer'
 import type { ResumeModel } from '../../content/resumeModel'
+import notoRegular from './fonts/NotoSans-Regular.ttf'
+import notoBold from './fonts/NotoSans-Bold.ttf'
+
+// Embedded Unicode font: built-in Helvetica cannot encode Turkish 'İ'.
+Font.register({
+  family: 'Noto Sans',
+  fonts: [
+    { src: notoRegular },
+    { src: notoBold, fontWeight: 700 },
+  ],
+})
+Font.registerHyphenationCallback((word) => [word])
 
 const INK = '#2B2620'
 const ACCENT = '#B85C3E'
@@ -9,18 +21,18 @@ const styles = StyleSheet.create({
   page: {
     paddingVertical: 42,
     paddingHorizontal: 48,
-    fontFamily: 'Helvetica',
+    fontFamily: 'Noto Sans',
     fontSize: 9.5,
     color: INK,
     lineHeight: 1.45,
   },
-  name: { fontSize: 22, fontFamily: 'Helvetica-Bold' },
-  title: { fontSize: 11, color: ACCENT, marginTop: 2 },
+  name: { fontSize: 22, fontWeight: 700, lineHeight: 1.15 },
+  title: { fontSize: 11, color: ACCENT, marginTop: 4 },
   contactRow: { fontSize: 8.5, color: FAINT, marginTop: 6 },
   section: { marginTop: 14 },
   sectionTitle: {
     fontSize: 9,
-    fontFamily: 'Helvetica-Bold',
+    fontWeight: 700,
     color: ACCENT,
     letterSpacing: 1.5,
     textTransform: 'uppercase',
@@ -30,14 +42,14 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   expHeader: { flexDirection: 'row', justifyContent: 'space-between', marginTop: 6 },
-  expRole: { fontSize: 10.5, fontFamily: 'Helvetica-Bold' },
+  expRole: { fontSize: 10.5, fontWeight: 700 },
   expPeriod: { fontSize: 9, color: FAINT },
   expOrg: { fontSize: 9.5, color: ACCENT, marginBottom: 2 },
   bullet: { flexDirection: 'row', marginBottom: 1.5 },
   bulletMark: { width: 10, color: ACCENT },
   bulletText: { flex: 1 },
   skillRow: { flexDirection: 'row', marginBottom: 2 },
-  skillLabel: { width: 150, fontFamily: 'Helvetica-Bold' },
+  skillLabel: { width: 150, fontWeight: 700 },
   skillItems: { flex: 1 },
 })
 
@@ -117,7 +129,7 @@ export function ResumePdfDocument({ model }: { model: ResumeModel }) {
               <View key={proj.name} style={styles.bullet}>
                 <Text style={styles.bulletMark}>•</Text>
                 <Text style={styles.bulletText}>
-                  <Text style={{ fontFamily: 'Helvetica-Bold' }}>
+                  <Text style={{ fontWeight: 700 }}>
                     {proj.name} ({proj.year}):{' '}
                   </Text>
                   {proj.description}
