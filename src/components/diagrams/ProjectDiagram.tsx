@@ -99,6 +99,23 @@ const DIAGRAMS: Record<string, DiagramSpec> = {
       { from: 'testflight', to: 'build', loopback: true, dashed: true, label: 'iterate' },
     ],
   },
+  'video-engine': {
+    title: 'Remotion Video Engine: a written brief becomes a rendered launch film',
+    nodes: [
+      { id: 'brief', x: 8, y: 58, w: 80, label: 'Brief' },
+      { id: 'scenario', x: 128, y: 58, w: 104, label: 'Scenario', sub: 'agent script' },
+      { id: 'compose', x: 272, y: 58, w: 108, label: 'Compose', sub: 'React scenes' },
+      { id: 'render', x: 420, y: 58, w: 96, label: 'Render', sub: 'Remotion' },
+      { id: 'deliver', x: 556, y: 58, w: 78, label: 'Deliver' },
+    ],
+    edges: [
+      { from: 'brief', to: 'scenario' },
+      { from: 'scenario', to: 'compose' },
+      { from: 'compose', to: 'render' },
+      { from: 'render', to: 'deliver' },
+      { from: 'render', to: 'scenario', loopback: true, dashed: true, label: 'art pass' },
+    ],
+  },
   qplace: {
     title: 'QPlace: select ≠ hydrate — the model picks widgets, deterministic code fills them',
     nodes: [

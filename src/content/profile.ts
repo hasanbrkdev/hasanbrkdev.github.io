@@ -33,8 +33,9 @@ export const profile: Profile = {
 
   stats: [
     { value: '7+', label: 'years of hands-on coding' },
-    { value: '10+', label: 'products & pipelines built' },
-    { value: '30+', label: 'repositories on GitHub' },
+    { value: '10+', label: 'products & pipelines shipped' },
+    { value: '20+', label: 'AI workflows in production' },
+    { value: '2', label: 'apps live on the App Store' },
   ],
 
   specialities: [
@@ -83,7 +84,7 @@ export const profile: Profile = {
       tagline: 'Multi-agent film & animation platform',
       description:
         'A multi-agent AI platform for film and animation production — an LLM brain plans, a role-assigned agent crew executes, and a model-agnostic dispatcher drives 8+ image and video engines. The Lumos channel runs on it: videos produced script-to-screen with no human in the loop.',
-      role: 'Agentic pipelines & studio modules',
+      role: 'Pipeline architecture & agentic systems',
       stack: ['Multi-agent orchestration', 'LLM planner / executor', 'Role-assigned agent crew', 'Vision QC', 'Model-agnostic dispatch', 'Next.js', 'Python'],
       period: '2025 — Present',
       accent: 'gold',
@@ -109,7 +110,7 @@ export const profile: Profile = {
       tagline: 'Intent-to-interface place discovery',
       description:
         'A place-discovery system where one natural-language question comes in and what returns over the wire is not a screen but a selection: which widgets from a fixed 16-entry catalog, in what order, at what weight. Server-driven UI under a hard authority boundary.',
-      role: 'AI selection layer & validation',
+      role: 'AI systems engineering',
       stack: ['Server-driven UI', 'Schema-constrained LLM selection', 'Intent routing', 'Gemini 2.5 Flash', 'Supabase Edge Functions', 'Swift / SwiftUI'],
       period: '2026 — Now building',
       accent: 'amber',
@@ -153,7 +154,7 @@ export const profile: Profile = {
       tagline: 'Brief-to-campaign content automation',
       description:
         'A request-to-publish content automation system: teammates submit a brief, and the platform turns it into on-brand Instagram campaigns — rendered programmatically with Remotion and delivered as ready-to-post assets, with an approval flow in between.',
-      role: 'Full-stack development & render pipeline',
+      role: 'End-to-end development',
       stack: ['Next.js', 'Supabase', 'Remotion', 'Claude agent skills', 'Row-level security'],
       period: '2025 — Present',
       accent: 'rose',
@@ -165,6 +166,26 @@ export const profile: Profile = {
         'Platform architecture: request panel, queue, agent runtime and render farm',
         'Skill-factory design — blueprint that generates brand-locked generation skills',
         'Remotion render pipeline and batch export',
+      ],
+    },
+    {
+      id: 'video-engine',
+      name: 'Remotion Video Engine',
+      tagline: 'Programmatic launch films & product videos',
+      description:
+        'A brief-to-film pipeline: a written brief becomes a 30–60 second cinematic launch video — scenario, choreography, typography and brand payoff composed in React and rendered programmatically. No timeline editor, no per-video design work.',
+      role: 'End-to-end development',
+      stack: ['Remotion', 'React', 'TypeScript', 'Claude agent skills', 'FFmpeg'],
+      period: '2025 — Present',
+      accent: 'gold',
+      detail: [
+        'The engine encodes a production standard — layered 3D-feel intros, phone reveals, narrative arcs and branded payoffs — so output stays premium even when the brief is a single sentence. Scenes are React compositions; motion is code, which means every film is reproducible and reviewable like software.',
+        'Brands are locked the same way as the campaign platform: a blueprint generates brand-locked child generators carrying palette, voice and choreography constraints, so each client’s films stay unmistakably theirs across batches.',
+      ],
+      roleBullets: [
+        'Composition system: scene choreography, easing language and layered depth in React',
+        'Brief → scenario → render automation with agent-driven scripting',
+        'Batch rendering and 1080×1920 delivery pipeline',
       ],
     },
     {
