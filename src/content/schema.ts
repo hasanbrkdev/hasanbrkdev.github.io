@@ -30,6 +30,14 @@ export const projectSchema = z.object({
   accent: z.enum(['amber', 'moss', 'skyblue', 'rose', 'gold']),
   link: z.string().url().optional(),
   confidential: z.boolean().optional(),
+  /** Short status chip, e.g. "Now building". */
+  badge: z.string().optional(),
+  /** Rich expandable paragraphs (Ege-style deep dive). */
+  detail: z.array(z.string().min(1)).optional(),
+  /** Detailed contribution bullets. */
+  roleBullets: z.array(z.string().min(1)).optional(),
+  /** Outbound links: live site, App Store, source, channel. */
+  links: z.array(z.object({ label: z.string().min(1), url: z.string().url() })).optional(),
 })
 
 export const journeyItemSchema = z.object({

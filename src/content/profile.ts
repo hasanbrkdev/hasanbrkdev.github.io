@@ -79,14 +79,95 @@ export const profile: Profile = {
   projects: [
     {
       id: 'lumos',
-      name: 'Lumos Generative AI',
-      tagline: 'Autonomous video generation',
+      name: 'Mindplace · Lumos Generative AI',
+      tagline: 'Multi-agent film & animation platform',
       description:
-        'Custom AI-orchestration pipelines that take a topic from script to finished video without a human in the loop — narration, visuals, motion and edit assembled automatically. Designed the pipeline architecture, prompt systems and rendering automation.',
-      role: 'Pipeline architecture & AI orchestration',
-      stack: ['Python', 'TypeScript', 'LLM orchestration', 'Remotion', 'FFmpeg'],
+        'A multi-agent AI platform for film and animation production — an LLM brain plans, a role-assigned agent crew executes, and a model-agnostic dispatcher drives 8+ image and video engines. The Lumos channel runs on it: videos produced script-to-screen with no human in the loop.',
+      role: 'Agentic pipelines & studio modules',
+      stack: ['Multi-agent orchestration', 'LLM planner / executor', 'Vision QC', 'Next.js', 'Python', 'Remotion', 'FFmpeg'],
       period: '2025 — Present',
       accent: 'gold',
+      badge: 'Building',
+      detail: [
+        'In the agent-driven flows (VisualStoryteller, CortexStoryteller) a Supervisor compiles the brief into an execution plan, then an executor coordinates a role-assigned crew — Creative Director, Writer, Art Director, Director, Composer and a QC agent — with dependency resolution, parallel groups and per-keyframe Vision QC.',
+        'The Studio modules are smaller agentic pipelines of their own, like Moodboard’s composer→critic loop. Underneath both, a model-agnostic dispatcher maps one prompt surface onto 8+ generative engines — manifest-driven and capability-gated, never branching on model id.',
+      ],
+      roleBullets: [
+        'Studio module pipelines — Moodboard, Cartoon, Idea Visualizer and education-content generators',
+        'Autonomous publishing pipeline for the Lumos channel: script → narration → visuals → edit → upload',
+        'Prompt systems, LLM memory and per-keyframe QC loops',
+        'Unattended batch automation for overnight production runs',
+      ],
+      links: [
+        { label: 'mindplace.app', url: 'https://www.mindplace.app' },
+        { label: 'Lumos on YouTube', url: 'https://www.youtube.com/@LumosGenerativeAI' },
+      ],
+    },
+    {
+      id: 'qplace',
+      name: 'QPlace',
+      tagline: 'Intent-to-interface place discovery',
+      description:
+        'A place-discovery system where one natural-language question comes in and what returns over the wire is not a screen but a selection: which widgets from a fixed 16-entry catalog, in what order, at what weight. Server-driven UI under a hard authority boundary.',
+      role: 'AI selection layer & validation',
+      stack: ['Server-driven UI', 'Schema-constrained LLM selection', 'Intent routing', 'Gemini 2.5 Flash', 'Supabase Edge Functions', 'Swift / SwiftUI'],
+      period: '2026 — Now building',
+      accent: 'amber',
+      badge: 'Now building',
+      detail: [
+        'The load-bearing constraint is select ≠ hydrate: the model writes the query and picks the widgets, while deterministic code hydrates every payload from retrieved data — the model is structurally unable to emit a coordinate, an identifier or a URL. Every proposal runs a validator; nothing left falls back to a known-good recipe.',
+        'Around that sits a routed turn pipeline: a heuristic intent router classifies the turn, a four-level depth ladder governs how much session state it may move, and a composer resolves widgets, transitions and next moves. Model calls are placed, not sprinkled.',
+      ],
+      roleBullets: [
+        'Two-person build with Ege Özçelik under Reconchille Studios',
+        'Schema-constrained LLM selection & prompt engineering in edge functions',
+        'Validator / judging layer — contract-test suite over the composition gates',
+      ],
+      links: [{ label: 'Explore QPlace', url: 'https://www.reconchillestudios.com/apps/qplace' }],
+    },
+    {
+      id: 'traveler',
+      name: 'TravelerApp · Pacer',
+      tagline: 'Two companion iOS apps, live on the App Store',
+      description:
+        'Two shipped iOS apps built as real field tools. TravelerApp turns a plain-language wish — “a quiet cafe to read in” — into grounded, geo-fenced discoveries; Pacer is the field-analytics half, turning raw GPS into clean stored routes with HealthKit sync.',
+      role: 'AI discovery pipeline & retrieval',
+      stack: ['Geo-temporal LLM prompting', 'Places-grounded retrieval', 'Structured LLM output', 'Supabase Edge Functions', 'Swift / SwiftUI', 'Kalman filtering'],
+      period: '2024 — Present',
+      accent: 'skyblue',
+      detail: [
+        'Explore is an AI-orchestrated discovery pipeline — a two-stage Gemini flow in an edge function: the model first translates the wish into structured, schema-constrained category queries, which are then grounded against Google Places and geo-fenced before anything reaches the screen.',
+        'Prompt and context are engineered like infrastructure: every request carries location, time of day, weekday and season, so a late-night ask surfaces places that are open now. Pacer runs raw GPS through a Kalman filter and Ramer–Douglas–Peucker simplification into stored encoded polylines.',
+      ],
+      roleBullets: [
+        'Two-person build with Ege Özçelik under Reconchille Studios',
+        'AI discovery pipeline: prompt design, structured output contracts, retrieval grounding',
+        'Context engineering — geo-temporal request enrichment',
+      ],
+      links: [
+        { label: 'TravelerApp on the App Store', url: 'https://apps.apple.com/us/app/travelerapp/id6761769561' },
+        { label: 'Pacer on the App Store', url: 'https://apps.apple.com/us/app/pacer-by-travelerapp/id6773798438' },
+      ],
+    },
+    {
+      id: 'carousel',
+      name: 'Carousel Platform',
+      tagline: 'Brief-to-campaign content automation',
+      description:
+        'A request-to-publish content automation system: teammates submit a brief, and the platform turns it into on-brand Instagram campaigns — rendered programmatically with Remotion and delivered as ready-to-post assets, with an approval flow in between.',
+      role: 'Full-stack development & render pipeline',
+      stack: ['Next.js', 'Supabase', 'Remotion', 'Claude agent skills', 'Row-level security'],
+      period: '2025 — Present',
+      accent: 'rose',
+      detail: [
+        'The generation side is a skill factory: a blueprint produces brand-locked child skills, each carrying its own palette, voice and layout constraints, so every brand renders on-brand without per-post design work. Requests queue in Supabase, an agent picks them up, and Remotion renders final PNG batches.',
+        'An approval workflow sits between generation and publishing — humans see live previews and approve or send back with notes before anything renders at full quality.',
+      ],
+      roleBullets: [
+        'Platform architecture: request panel, queue, agent runtime and render farm',
+        'Skill-factory design — blueprint that generates brand-locked generation skills',
+        'Remotion render pipeline and batch export',
+      ],
     },
     {
       id: 'gia',
@@ -97,29 +178,20 @@ export const profile: Profile = {
       role: 'Web development & interactive experience',
       stack: ['TypeScript', 'React', 'Creative web'],
       period: '2025',
-      accent: 'rose',
-    },
-    {
-      id: 'carousel',
-      name: 'Carousel Platform',
-      tagline: 'Brief-to-campaign content automation',
-      description:
-        'A request-to-publish content automation system: teammates submit a brief, and the platform turns it into on-brand Instagram campaigns — rendered programmatically with Remotion and delivered as ready-to-post assets, with an approval flow in between.',
-      role: 'Full-stack development & render pipeline',
-      stack: ['Next.js', 'Supabase', 'Remotion', 'Claude agent skills'],
-      period: '2025 — Present',
-      accent: 'amber',
+      accent: 'moss',
+      links: [{ label: 'giacreativestudio.com', url: 'https://www.giacreativestudio.com' }],
     },
     {
       id: 'reconchille',
       name: 'Reconchille Studios',
-      tagline: 'Mobile app, built and shipped',
+      tagline: 'The indie studio behind the apps',
       description:
-        'Mobile application developed and deployed to production for Reconchille Studios — from UI implementation through release, working directly with the studio on iterations.',
-      role: 'Mobile development & deployment',
-      stack: ['Cross-platform mobile', 'Product delivery'],
-      period: '2025',
-      accent: 'moss',
+        'The two-person app studio where QPlace, TravelerApp and Pacer live — product development from architecture through App Store release, shipped and iterated with real users.',
+      role: 'Product engineering & delivery',
+      stack: ['iOS', 'Supabase', 'AI pipelines', 'App Store delivery'],
+      period: '2024 — Present',
+      accent: 'amber',
+      links: [{ label: 'reconchillestudios.com', url: 'https://www.reconchillestudios.com' }],
     },
     {
       id: 'koi',
@@ -160,7 +232,7 @@ export const profile: Profile = {
       title: 'AI-native product partnership',
       org: 'with Ege Özçelik',
       description:
-        'Active two-person product team: Lumos autonomous video pipelines, GIA Creative Studio, Reconchille Studios mobile, Koi Academy and a brief-to-campaign content automation platform.',
+        'Active two-person product team under Reconchille Studios: Mindplace multi-agent platform & the Lumos channel, QPlace, TravelerApp · Pacer on the App Store, GIA Creative Studio, Koi Academy and a brief-to-campaign content automation platform.',
       kind: 'partnership',
     },
   ],
@@ -168,7 +240,7 @@ export const profile: Profile = {
   resume: {
     phone: '+90 (532) 137 74 05',
     summary:
-      'Electrical & Electronics Engineering graduate (Ege University) working as a software & AI engineer. Over the last year, shipped AI-native products in an active two-person team: autonomous video-generation pipelines (Lumos), creative web platforms (GIA Creative Studio), a production mobile app (Reconchille Studios) and a brief-to-campaign content automation platform. Systems thinking from an EE background; daily tools are TypeScript, Python, React/Next.js, Supabase and LLM orchestration.',
+      'Electrical & Electronics Engineering graduate (Ege University) working as a software & AI engineer. Over the last year, shipped AI-native products in an active two-person team under Reconchille Studios: a multi-agent film & animation platform (Mindplace / Lumos), iOS apps live on the App Store (TravelerApp · Pacer), a server-driven-UI discovery app (QPlace), creative web platforms (GIA Creative Studio) and a brief-to-campaign content automation platform. Systems thinking from an EE background; daily tools are TypeScript, Python, React/Next.js, Supabase and LLM orchestration.',
     skillGroups: [
       {
         label: 'Languages',
@@ -198,11 +270,12 @@ export const profile: Profile = {
         period: '2025 — Present',
         location: 'İzmir, Turkey',
         bullets: [
-          'Designed and operate autonomous video-generation pipelines at Lumos — script, narration, visuals and edit produced end-to-end without manual steps.',
-          'Built the website and interactive exhibition simulation for GIA Creative Studio.',
-          'Developed and shipped a production mobile app for Reconchille Studios.',
-          'Full-stack development for Koi Academy across web and mobile (under NDA).',
+          'Build agentic pipelines on Mindplace, a multi-agent film & animation platform — studio modules (Moodboard, Cartoon, Idea Visualizer) and the autonomous script-to-screen pipeline behind the Lumos channel.',
+          'Co-develop QPlace (Reconchille Studios): schema-constrained LLM selection and the validator layer of a server-driven-UI discovery app.',
+          'AI discovery pipeline for TravelerApp · Pacer, two iOS apps live on the App Store — structured LLM output contracts and places-grounded retrieval.',
           'Built a brief-to-campaign content automation platform (Next.js, Supabase, Remotion) with an approval workflow and programmatic rendering.',
+          'Built the website and interactive exhibition simulation for GIA Creative Studio.',
+          'Full-stack development for Koi Academy across web and mobile (under NDA).',
         ],
       },
       {
