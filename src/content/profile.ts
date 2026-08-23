@@ -28,7 +28,7 @@ export const profile: Profile = {
       { text: 'I design systems where models, media and code meet.' },
     ],
     body:
-      'Over the last year I have been building AI-native products in an active partnership with Ege Özçelik — from autonomous video-generation pipelines at Lumos to creative platforms like GIA Creative Studio. My electrical engineering background taught me to think in systems; shipping real products taught me to think in users.',
+      'Over the last year I have been building AI-native products at Reconchille Studios — from the Mindplace multi-agent platform and the autonomous Lumos pipeline to iOS apps live on the App Store. My electrical engineering background taught me to think in systems; shipping real products taught me to think in users.',
   },
 
   stats: [
@@ -119,7 +119,6 @@ export const profile: Profile = {
         'Around that sits a routed turn pipeline: a heuristic intent router classifies the turn, a four-level depth ladder governs how much session state it may move, and a composer resolves widgets, transitions and next moves. Model calls are placed, not sprinkled.',
       ],
       roleBullets: [
-        'Two-person build with Ege Özçelik under Reconchille Studios',
         'Schema-constrained LLM selection & prompt engineering in edge functions',
         'Validator / judging layer — contract-test suite over the composition gates',
       ],
@@ -140,7 +139,6 @@ export const profile: Profile = {
         'Prompt and context are engineered like infrastructure: every request carries location, time of day, weekday and season, so a late-night ask surfaces places that are open now. Pacer runs raw GPS through a Kalman filter and Ramer–Douglas–Peucker simplification into stored encoded polylines.',
       ],
       roleBullets: [
-        'Two-person build with Ege Özçelik under Reconchille Studios',
         'AI discovery pipeline: prompt design, structured output contracts, retrieval grounding',
         'Context engineering — geo-temporal request enrichment',
       ],
@@ -292,10 +290,10 @@ export const profile: Profile = {
     {
       id: 'partnership',
       period: '2025 — Present',
-      title: 'AI-native product partnership',
-      org: 'with Ege Özçelik',
+      title: 'AI-native product engineering',
+      org: 'Reconchille Studios',
       description:
-        'Active two-person product team under Reconchille Studios: Mindplace multi-agent platform & the Lumos channel, QPlace, TravelerApp · Pacer on the App Store, GIA Creative Studio, Koi Academy and a brief-to-campaign content automation platform.',
+        'Building and shipping AI-native products: the Mindplace multi-agent platform & the Lumos channel, QPlace, TravelerApp · Pacer on the App Store, GIA Creative Studio, Koi Academy and a brief-to-campaign content automation platform.',
       kind: 'partnership',
     },
   ],
@@ -330,7 +328,7 @@ export const profile: Profile = {
     experience: [
       {
         role: 'Software & AI Engineer',
-        org: 'Independent product partnership (with Ege Özçelik)',
+        org: 'Reconchille Studios',
         period: '2025 — Present',
         location: 'İzmir, Turkey',
         bullets: [
