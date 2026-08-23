@@ -1,0 +1,200 @@
+- main [ref=e3]:
+  - generic [ref=e5]:
+    - navigation [ref=e8]:
+      - generic [ref=e9]:
+        - button "About" [ref=e10] [cursor=pointer]
+        - button "Specialities" [ref=e11] [cursor=pointer]
+        - button "Work" [ref=e12] [cursor=pointer]
+        - button "Journey" [ref=e13] [cursor=pointer]
+        - button "Contact" [ref=e14] [cursor=pointer]
+        - link "Résumé" [ref=e15] [cursor=pointer]:
+          - /url: "#/resume"
+    - generic [ref=e17]:
+      - generic [ref=e20]:
+        - text: Hasan
+        - generic [ref=e21]: "*"
+      - generic [ref=e22]:
+        - paragraph [ref=e23]: Hasan is an İzmir-based software & AI engineer building AI-native products — autonomous media pipelines, creative platforms and full-stack systems shaped by an electronics engineer’s eye for architecture.
+        - button [ref=e24] [cursor=pointer]
+  - generic [ref=e29]:
+    - paragraph [ref=e30]: About
+    - generic [ref=e32]:
+      - generic [ref=e33]: I
+      - generic [ref=e34]: am
+      - generic [ref=e35]: Hasan
+      - generic [ref=e36]: Burak,
+      - generic [ref=e37]: an
+      - generic [ref=e38]: electronics
+      - generic [ref=e39]: engineer
+      - generic [ref=e40]: turned
+      - generic [ref=e41]: AI
+      - generic [ref=e42]: builder.
+      - generic [ref=e43]: I
+      - generic [ref=e44]: design
+      - generic [ref=e45]: systems
+      - generic [ref=e46]: where
+      - generic [ref=e47]: models,
+      - generic [ref=e48]: media
+      - generic [ref=e49]: and
+      - generic [ref=e50]: code
+      - generic [ref=e51]: meet.
+    - paragraph [ref=e52]: Over the last year I have been building AI-native products in an active partnership with Ege Özçelik — from autonomous video-generation pipelines at Lumos to creative platforms like GIA Creative Studio. My electrical engineering background taught me to think in systems; shipping real products taught me to think in users.
+    - generic [ref=e53]:
+      - generic [ref=e54]:
+        - paragraph [ref=e55]: 7+
+        - paragraph [ref=e56]: years of hands-on coding
+      - generic [ref=e57]:
+        - paragraph [ref=e58]: 10+
+        - paragraph [ref=e59]: products & pipelines built
+      - generic [ref=e60]:
+        - paragraph [ref=e61]: 30+
+        - paragraph [ref=e62]: repositories on GitHub
+  - generic [ref=e64]:
+    - paragraph [ref=e65]: Specialities
+    - generic [ref=e67]:
+      - generic [ref=e68]: Studio-grade
+      - generic [ref=e69]: engineering
+      - generic [ref=e70]: for
+      - generic [ref=e71]: AI-native
+      - generic [ref=e72]: products.
+      - generic [ref=e73]: Systems
+      - generic [ref=e74]: first.
+      - generic [ref=e75]: Shipped
+      - generic [ref=e76]: always.
+    - generic [ref=e77]:
+      - paragraph [ref=e80]: Where systems meet stories.
+      - generic [ref=e81]:
+        - generic [ref=e93]:
+          - heading "AI Orchestration & Agentic Systems" [level=3] [ref=e94]
+          - generic [ref=e95]: "01"
+        - paragraph [ref=e96]: Pipelines that think — and run unattended.
+        - list [ref=e97]:
+          - listitem [ref=e98]:
+            - generic [ref=e101]: Agentic workflows built on Claude & GPT tooling
+          - listitem [ref=e102]:
+            - generic [ref=e105]: Prompt systems, evaluation loops and guardrails
+          - listitem [ref=e106]:
+            - generic [ref=e109]: Unattended batch automation at production scale
+      - generic [ref=e110]:
+        - generic [ref=e116]:
+          - heading "Full-Stack Product Engineering" [level=3] [ref=e117]
+          - generic [ref=e118]: "02"
+        - paragraph [ref=e119]: From schema to screen, shipped and maintained.
+        - list [ref=e120]:
+          - listitem [ref=e121]:
+            - generic [ref=e124]: React, Next.js & TypeScript front-ends
+          - listitem [ref=e125]:
+            - generic [ref=e128]: Supabase & Postgres back-ends with RLS discipline
+          - listitem [ref=e129]:
+            - generic [ref=e132]: Testing, CI and GitHub-native delivery
+      - generic [ref=e133]:
+        - generic [ref=e140]:
+          - heading "Generative Media Pipelines" [level=3] [ref=e141]
+          - generic [ref=e142]: "03"
+        - paragraph [ref=e143]: Programmatic video, rendered like a studio.
+        - list [ref=e144]:
+          - listitem [ref=e145]:
+            - generic [ref=e148]: Remotion-based programmatic video production
+          - listitem [ref=e149]:
+            - generic [ref=e152]: Image & video model pipelines (Seedance, diffusion)
+          - listitem [ref=e153]:
+            - generic [ref=e156]: Script-to-screen publishing automation
+  - generic [ref=e158]:
+    - paragraph [ref=e159]: Selected Work
+    - generic [ref=e160]:
+      - generic [ref=e162]:
+        - generic [ref=e163]: Things
+        - generic [ref=e164]: I
+        - generic [ref=e165]: have
+        - generic [ref=e166]: built,
+        - generic [ref=e167]: with
+        - generic [ref=e168]: people
+        - generic [ref=e169]: I
+        - generic [ref=e170]: like
+        - generic [ref=e171]: building
+        - generic [ref=e172]: with.
+      - paragraph [ref=e173]: Click a project to expand
+    - generic [ref=e174]:
+      - generic [ref=e175]:
+        - button "01 Lumos Generative AI Autonomous video generation" [expanded] [active] [ref=e176] [cursor=pointer]:
+          - generic [ref=e177]: "01"
+          - generic [ref=e179]: Lumos Generative AI
+          - generic [ref=e180]: Autonomous video generation
+        - generic [ref=e318]:
+          - paragraph [ref=e319]: Custom AI-orchestration pipelines that take a topic from script to finished video without a human in the loop — narration, visuals, motion and edit assembled automatically. Designed the pipeline architecture, prompt systems and rendering automation.
+          - generic [ref=e320]:
+            - generic [ref=e321]:
+              - paragraph [ref=e322]: Role
+              - paragraph [ref=e323]: Pipeline architecture & AI orchestration
+            - generic [ref=e324]:
+              - paragraph [ref=e325]: Period
+              - paragraph [ref=e326]: 2025 — Present
+            - generic [ref=e327]:
+              - generic [ref=e328]: Python
+              - generic [ref=e329]: TypeScript
+              - generic [ref=e330]: LLM orchestration
+              - generic [ref=e331]: Remotion
+              - generic [ref=e332]: FFmpeg
+      - button "02 GIA Creative Studio Digital exhibition & web experience" [ref=e184] [cursor=pointer]:
+        - generic [ref=e185]: "02"
+        - generic [ref=e187]: GIA Creative Studio
+        - generic [ref=e188]: Digital exhibition & web experience
+      - button "03 Carousel Platform Brief-to-campaign content automation" [ref=e192] [cursor=pointer]:
+        - generic [ref=e193]: "03"
+        - generic [ref=e195]: Carousel Platform
+        - generic [ref=e196]: Brief-to-campaign content automation
+      - button "04 Reconchille Studios Mobile app, built and shipped" [ref=e200] [cursor=pointer]:
+        - generic [ref=e201]: "04"
+        - generic [ref=e203]: Reconchille Studios
+        - generic [ref=e204]: Mobile app, built and shipped
+      - button "05 Koi Academy Web & mobile for an education venture" [ref=e208] [cursor=pointer]:
+        - generic [ref=e209]: "05"
+        - generic [ref=e211]: Koi Academy
+        - generic [ref=e212]: Web & mobile for an education venture
+  - generic [ref=e216]:
+    - paragraph [ref=e217]: Journey
+    - generic [ref=e219]:
+      - generic [ref=e220]: From
+      - generic [ref=e221]: circuits
+      - generic [ref=e222]: to
+      - generic [ref=e223]: systems
+      - generic [ref=e224]: that
+      - generic [ref=e225]: create.
+    - generic [ref=e226]:
+      - generic [ref=e227]:
+        - paragraph [ref=e232]: 2017 — 2023
+        - heading "BSc, Electrical & Electronics Engineering" [level=3] [ref=e233]
+        - paragraph [ref=e234]: Ege University
+        - paragraph [ref=e235]: English-medium engineering program. Embedded systems, communications and signal processing — including UAV ground-control comms and ECG signal-analysis projects.
+      - generic [ref=e236]:
+        - paragraph [ref=e241]: 2023 — 2024
+        - heading "Self-directed move into software & AI" [level=3] [ref=e242]
+        - paragraph [ref=e243]: Independent
+        - paragraph [ref=e244]: "Traded the lab bench for the terminal: TypeScript, Python, LLM tooling and dozens of shipped experiments — building the toolbox that powers everything since."
+      - generic [ref=e245]:
+        - paragraph [ref=e252]: 2025 — Present
+        - heading "AI-native product partnership" [level=3] [ref=e253]
+        - paragraph [ref=e254]: with Ege Özçelik
+        - paragraph [ref=e255]: "Active two-person product team: Lumos autonomous video pipelines, GIA Creative Studio, Reconchille Studios mobile, Koi Academy and a brief-to-campaign content automation platform."
+  - generic [ref=e258]:
+    - paragraph [ref=e259]: Résumé
+    - heading "Need the paper version?" [level=2] [ref=e260]
+    - paragraph [ref=e261]: A print-ready PDF, generated from the same data as this site — always current, tailored per application, every version tracked.
+    - link [ref=e262] [cursor=pointer]:
+      - /url: "#/resume"
+  - generic [ref=e289]:
+    - generic [ref=e290]:
+      - generic [ref=e291]: Let’s
+      - generic [ref=e292]: build
+      - generic [ref=e293]: something.
+    - paragraph [ref=e294]: Open to product engineering, AI pipeline and creative platform work.
+    - link [ref=e295] [cursor=pointer]:
+      - /url: mailto:hasan_burak1999@hotmail.com
+    - generic [ref=e300]:
+      - link "GitHub" [ref=e301] [cursor=pointer]:
+        - /url: https://github.com/hasanbrkdev
+      - link "LinkedIn" [ref=e305] [cursor=pointer]:
+        - /url: https://www.linkedin.com/in/hasan-burak-%C3%B6zdemir-494b002b1/
+      - link "Email" [ref=e310] [cursor=pointer]:
+        - /url: mailto:hasan_burak1999@hotmail.com
+    - paragraph [ref=e314]: İzmir, Turkey (GMT+3) · © 2026 Hasan Burak Özdemir
