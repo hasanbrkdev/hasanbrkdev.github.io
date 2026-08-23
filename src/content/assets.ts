@@ -18,8 +18,10 @@ export const assets: {
   projectArt: Record<string, string>
   projectLoops: Record<string, LoopMedia>
 } = {
-  heroVideo: null,
-  heroImage: '/assets/hero.jpg',
+  // Hero poster + cutout are both derived from the loop's own first frame,
+  // so background video, poster and foreground island stay pixel-locked.
+  heroVideo: '/assets/hero-loop.mp4',
+  heroImage: '/assets/hero-poster.jpg',
   heroCutout: '/assets/hero-cutout.png',
   specialitiesImage: '/assets/specialities.jpg',
   specialitiesLoop: {

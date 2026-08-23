@@ -15,8 +15,7 @@ import { assets } from '../../content/assets'
 import { scrollToId } from '../ui/scroll'
 import { EASE_INOUT } from '../animations/motion'
 
-const lastName = profile.identity.name.split(' ').slice(-1)[0]
-const marqueeText = `${profile.identity.firstName} — ${lastName} `
+const marqueeText = `${profile.identity.name} — `
 
 const socials = [
   { label: 'GitHub', href: profile.identity.github },
@@ -29,22 +28,21 @@ export function Hero() {
   const sectionRef = useRef<HTMLElement>(null)
   const reduced = useReducedMotion()
 
-  // Scroll parallax — three layers separate as the hero scrolls away:
-  // background lags behind, marquee drifts up slightly, cutout (nearest) leads.
+  // Scroll parallax — the WORLD (background + island cutout) moves as one body
+  // so the island never ghosts against its own image; depth comes from the
+  // marquee sliding between the sky and the island at its own rate.
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start start', 'end start'],
   })
-  const bgY = useTransform(scrollYProgress, [0, 1], ['0vh', '10vh'])
-  const marqueeY = useTransform(scrollYProgress, [0, 1], ['0vh', '-4vh'])
-  const cutoutY = useTransform(scrollYProgress, [0, 1], ['0vh', '-10vh'])
-  const cutoutScale = useTransform(scrollYProgress, [0, 1], [1, 1.05])
+  const worldY = useTransform(scrollYProgress, [0, 1], ['0vh', '6vh'])
+  const marqueeY = useTransform(scrollYProgress, [0, 1], ['0vh', '-7vh'])
   const chromeOp = useTransform(scrollYProgress, [0, 0.5], [1, 0])
 
-  // Mouse parallax — x axis only (scroll owns y), bg and cutout move apart.
+  // Mouse parallax — world and marquee drift in opposite x directions.
   const mx = useSpring(useMotionValue(0), { stiffness: 60, damping: 20 })
-  const bgX = useTransform(mx, (v) => v * -0.5)
-  const cutoutX = useTransform(mx, (v) => v * 0.85)
+  const worldX = useTransform(mx, (v) => v * 0.5)
+  const marqueeX = useTransform(mx, (v) => v * -0.3)
 
   function onHeroPointerMove(e: React.PointerEvent<HTMLElement>) {
     if (reduced || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
@@ -73,23 +71,31 @@ export function Hero() {
       {/* Background artwork (cozy night scene) — farthest layer, moves least */}
       <motion.div
         className="absolute inset-0 will-change-transform"
-        style={reduced ? undefined : { y: bgY, x: bgX, scale: 1.12 }}
+        style={reduced ? undefined : { y: worldY, x: worldX, scale: 1.06 }}
       >
         {assets.heroVideo ? (
           <video
+            ref={(el) => {
+              // React omits the muted attribute; set the property so autoplay
+              // policies treat the video as muted.
+              if (el) el.muted = true
+            }}
             src={assets.heroVideo}
             poster={assets.heroImage ?? undefined}
             autoPlay
             loop
             muted
             playsInline
-            className="anim-fade-in absolute inset-0 h-full w-full object-cover"
+            onLoadedData={(e) => {
+              void e.currentTarget.play().catch(() => undefined)
+            }}
+            className="anim-fade-in absolute inset-0 h-full w-full object-cover [object-position:38%_50%]"
           />
         ) : assets.heroImage ? (
           <img
             src={assets.heroImage}
             alt=""
-            className="anim-fade-in absolute inset-0 h-full w-full object-cover"
+            className="anim-fade-in absolute inset-0 h-full w-full object-cover [object-position:38%_50%]"
           />
         ) : (
           <div className="anim-fade-in absolute inset-0 bg-gradient-to-b from-[#0F0F0E] via-[#161511] to-[#241F15]">
@@ -108,8 +114,12 @@ export function Hero() {
           initial={{ y: '110%' }}
           animate={{ y: '0%' }}
           transition={{ duration: 1.1, ease: EASE_INOUT, delay: 0.35 }}
+          style={reduced ? undefined : { x: marqueeX }}
         >
-          <div className="marquee type-marquee flex w-max whitespace-nowrap text-[16vh] leading-none text-cream sm:text-[24vh]">
+          <div
+            className="marquee type-marquee flex w-max whitespace-nowrap text-[15vh] leading-none text-cream sm:text-[21vh]"
+            style={{ animationDuration: '52s' }}
+          >
             <span className="pr-[6vw]">{marqueeText}</span>
             <span className="pr-[6vw]">{marqueeText}</span>
           </div>
@@ -120,12 +130,12 @@ export function Hero() {
       {assets.heroCutout && (
         <motion.div
           className="pointer-events-none absolute inset-0 z-20 will-change-transform"
-          style={reduced ? undefined : { y: cutoutY, x: cutoutX, scale: cutoutScale }}
+          style={reduced ? undefined : { y: worldY, x: worldX, scale: 1.06 }}
         >
           <img
             src={assets.heroCutout}
             alt=""
-            className="anim-rise-in h-full w-full object-cover"
+            className="anim-rise-in h-full w-full object-cover [object-position:38%_50%]"
             style={{ animationDelay: '150ms' }}
           />
         </motion.div>

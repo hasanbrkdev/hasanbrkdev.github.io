@@ -9,7 +9,7 @@ export const profile: Profile = {
     firstName: 'Hasan',
     title: 'Software & AI Engineer',
     location: 'İzmir, Turkey (GMT+3)',
-    email: 'hasan_burak1999@hotmail.com',
+    email: 'hasanburakozdemir.dev@gmail.com',
     github: 'https://github.com/hasanbrkdev',
     linkedin: 'https://www.linkedin.com/in/hasan-burak-%C3%B6zdemir-494b002b1/',
   },
