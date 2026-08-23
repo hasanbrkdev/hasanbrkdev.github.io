@@ -301,7 +301,7 @@ export const profile: Profile = {
   resume: {
     phone: '+90 (532) 137 74 05',
     summary:
-      'Electrical & Electronics Engineering graduate (Ege University) working as a software & AI engineer. Over the last year, shipped AI-native products in an active two-person team under Reconchille Studios: a multi-agent film & animation platform (Mindplace / Lumos), iOS apps live on the App Store (TravelerApp · Pacer), a server-driven-UI discovery app (QPlace), creative web platforms (GIA Creative Studio) and a brief-to-campaign content automation platform. Systems thinking from an EE background; daily tools are TypeScript, Python, React/Next.js, Supabase and LLM orchestration.',
+      'Electrical & Electronics Engineering graduate (Ege University) working as a software & AI engineer. Over the last year, shipped AI-native products at Reconchille Studios: a multi-agent film & animation platform (Mindplace / Lumos), iOS apps live on the App Store (TravelerApp · Pacer), a server-driven-UI discovery app (QPlace), creative web platforms (GIA Creative Studio) and a brief-to-campaign content automation platform. Systems thinking from an EE background; daily tools are TypeScript, Python, React/Next.js, Supabase and LLM orchestration.',
     skillGroups: [
       {
         label: 'Languages',
