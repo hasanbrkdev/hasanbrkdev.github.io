@@ -64,10 +64,6 @@ export default function ResumePage() {
 
         <ResumePreview model={model} />
 
-        <p className="mt-8 pb-4 text-center text-xs text-cream/40">
-          Rendered from <code>src/content/profile.ts</code> — every tailored version is a git
-          commit, reversible by design.
-        </p>
       </div>
     </main>
   )

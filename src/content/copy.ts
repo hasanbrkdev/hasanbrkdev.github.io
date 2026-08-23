@@ -32,8 +32,8 @@ export const copy = {
     line2: 'to systems that create.',
   },
   resumeCta: {
-    heading: 'Résumé.',
-    body: 'The same content as this site, typeset for A4 — always current, tailored per application, and every version tracked in git.',
+    heading: 'Résumé',
+    body: 'A print-ready PDF of everything on this site — always up to date.',
     button: 'Open & download',
     meta: 'PDF · A4 · generated in your browser',
   },

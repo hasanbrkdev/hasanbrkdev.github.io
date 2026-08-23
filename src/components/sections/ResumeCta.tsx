@@ -41,7 +41,7 @@ export function ResumeCta() {
         >
           <motion.h2
             variants={itemVariants}
-            className="font-serif text-6xl italic leading-none md:text-7xl"
+            className="type-display text-3xl leading-none md:text-4xl"
           >
             {copy.resumeCta.heading}
           </motion.h2>
