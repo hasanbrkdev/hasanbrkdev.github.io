@@ -15,7 +15,9 @@ import { assets } from '../../content/assets'
 import { scrollToId } from '../ui/scroll'
 import { EASE_INOUT } from '../animations/motion'
 
-const marqueeText = `${profile.identity.name} — `
+const nameWords = profile.identity.name.split(' ')
+const nameTop = nameWords.slice(0, -1).join(' ')
+const nameBottom = nameWords[nameWords.length - 1]
 
 const socials = [
   { label: 'GitHub', href: profile.identity.github },
@@ -105,9 +107,9 @@ export function Hero() {
       </motion.div>
       <div className="noise-overlay pointer-events-none absolute inset-0 opacity-[0.25] mix-blend-overlay" />
 
-      {/* Giant scrolling name — middle layer */}
+      {/* Giant static name — middle layer, sized to span the viewport */}
       <motion.div
-        className="absolute inset-x-0 top-[16vh] z-10 overflow-hidden will-change-transform sm:top-[14vh]"
+        className="absolute inset-x-0 top-[17vh] z-10 overflow-hidden will-change-transform sm:top-[15vh]"
         style={reduced ? undefined : { y: marqueeY }}
       >
         <motion.div
@@ -116,12 +118,13 @@ export function Hero() {
           transition={{ duration: 1.1, ease: EASE_INOUT, delay: 0.35 }}
           style={reduced ? undefined : { x: marqueeX }}
         >
-          <div
-            className="marquee type-marquee flex w-max whitespace-nowrap text-[15vh] leading-none text-cream sm:text-[21vh]"
-            style={{ animationDuration: '52s' }}
-          >
-            <span className="pr-[6vw]">{marqueeText}</span>
-            <span className="pr-[6vw]">{marqueeText}</span>
+          <div className="type-marquee hidden whitespace-nowrap text-center text-[8vw] leading-none text-cream sm:block">
+            {profile.identity.name}
+          </div>
+          <div className="type-marquee text-center text-[16vw] leading-[0.95] text-cream sm:hidden">
+            {nameTop}
+            <br />
+            {nameBottom}
           </div>
         </motion.div>
       </motion.div>
