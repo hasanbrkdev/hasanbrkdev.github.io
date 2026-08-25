@@ -22,6 +22,9 @@ const nameBottom = nameWords[nameWords.length - 1]
 const socials = [
   { label: 'GitHub', href: profile.identity.github },
   { label: 'LinkedIn', href: profile.identity.linkedin },
+  ...(profile.identity.instagram
+    ? [{ label: 'Instagram', href: profile.identity.instagram }]
+    : []),
   { label: 'Email', href: `mailto:${profile.identity.email}` },
 ]
 

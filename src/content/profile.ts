@@ -12,6 +12,7 @@ export const profile: Profile = {
     email: 'hasanburakozdemir.dev@gmail.com',
     github: 'https://github.com/hasanbrkdev',
     linkedin: 'https://www.linkedin.com/in/hasan-burak-%C3%B6zdemir-494b002b1/',
+    instagram: 'https://www.instagram.com/hsnburak/',
   },
 
   hero: {
@@ -36,6 +37,7 @@ export const profile: Profile = {
     { value: '10+', label: 'products & pipelines shipped' },
     { value: '20+', label: 'AI workflows in production' },
     { value: '2', label: 'apps live on the App Store' },
+    { value: '5+', label: 'companies consulted' },
   ],
 
   specialities: [

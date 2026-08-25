@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail } from 'lucide-react'
+import { Github, Instagram, Linkedin, Mail } from 'lucide-react'
 import { profile } from '../../content/profile'
 import { copy } from '../../content/copy'
 import { WordsPullUpMultiStyle } from '../animations/WordsPullUpMultiStyle'
@@ -73,6 +73,19 @@ export function Footer() {
               <Linkedin className="h-5 w-5" strokeWidth={1.5} />
             </a>
           </motion.div>
+          {profile.identity.instagram && (
+            <motion.div variants={socialItemVariants}>
+              <a
+                href={profile.identity.instagram}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+                className="block text-cream/50 transition-all duration-300 hover:-translate-y-1 hover:text-cream"
+              >
+                <Instagram className="h-5 w-5" strokeWidth={1.5} />
+              </a>
+            </motion.div>
+          )}
           <motion.div variants={socialItemVariants}>
             <a
               href={`mailto:${profile.identity.email}`}

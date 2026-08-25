@@ -8,6 +8,7 @@ export const identitySchema = z.object({
   email: z.string().email(),
   github: z.string().url(),
   linkedin: z.string().url(),
+  instagram: z.string().url().optional(),
 })
 
 export const specialitySchema = z.object({
