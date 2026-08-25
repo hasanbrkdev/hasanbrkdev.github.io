@@ -35,6 +35,12 @@ export const assets: {
     carousel: '/assets/carousel.jpg',
     reconchille: '/assets/reconchille.jpg',
     koi: '/assets/koi.jpg',
+    qplace: '/assets/qplace.jpg',
+    traveler: '/assets/traveler.jpg',
+    'video-engine': '/assets/video-engine.jpg',
+    'meta-learner': '/assets/meta-learner.jpg',
+    'ml-eval': '/assets/ml-eval.jpg',
+    colorization: '/assets/colorization.jpg',
   },
   projectLoops: {
     lumos: { video: '/assets/lumos-loop.mp4', poster: '/assets/lumos-poster.jpg' },
