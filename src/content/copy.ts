@@ -11,7 +11,7 @@ export const copy = {
     year: '2026',
     siteIndexLabel: 'Site Index',
     findMeLabel: 'Find Me',
-    footerLeft: ['Software & AI Engineer', 'Systems · Media · Products', 'From architecture to App Store'],
+    footerLeft: ['Software & AI Engineer', 'Build the machine that builds it.', 'Systems · Media · Products'],
     footerRight: ['İzmir, Turkey', 'GMT+3'],
   },
   specialities: {
