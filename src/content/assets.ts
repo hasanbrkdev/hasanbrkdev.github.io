@@ -51,5 +51,20 @@ export const assets: {
       poster: '/assets/reconchille-poster.jpg',
     },
     koi: { video: '/assets/koi-loop.mp4', poster: '/assets/koi-poster.jpg' },
+    qplace: { video: '/assets/qplace-loop.mp4', poster: '/assets/qplace-poster.jpg' },
+    traveler: { video: '/assets/traveler-loop.mp4', poster: '/assets/traveler-poster.jpg' },
+    'video-engine': {
+      video: '/assets/video-engine-loop.mp4',
+      poster: '/assets/video-engine-poster.jpg',
+    },
+    'meta-learner': {
+      video: '/assets/meta-learner-loop.mp4',
+      poster: '/assets/meta-learner-poster.jpg',
+    },
+    'ml-eval': { video: '/assets/ml-eval-loop.mp4', poster: '/assets/ml-eval-poster.jpg' },
+    colorization: {
+      video: '/assets/colorization-loop.mp4',
+      poster: '/assets/colorization-poster.jpg',
+    },
   },
 }

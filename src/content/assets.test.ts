@@ -15,8 +15,8 @@ describe('assets', () => {
     }
   })
 
-  it('all five featured projects have an ambient loop with poster on disk', () => {
-    for (const id of ['lumos', 'gia', 'carousel', 'reconchille', 'koi']) {
+  it('every project with art has an ambient loop with poster on disk', () => {
+    for (const id of Object.keys(assets.projectArt)) {
       const loop = assets.projectLoops[id]
       expect(loop, `missing loop for ${id}`).toBeDefined()
       expect(loop.video).toMatch(/^\/assets\/.+\.mp4$/)
